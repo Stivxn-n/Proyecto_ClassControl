@@ -1,210 +1,292 @@
 <!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Usuario — ClassControl (SENA)</title>
 
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Registro de Usuario - ClassControl (SENA)</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ec5b13",
-                        "sena-green": "#39A900",
-                        "background-light": "#f8f6f6",
-                        "background-dark": "#221610",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="Registrar usuarioCSS.css" />
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
-<div class="flex flex-col min-h-screen">
-<!-- Top Navigation Bar -->
-<header class="w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between sticky top-0 z-50">
-<div class="flex items-center gap-3">
-<div class="bg-primary/10 p-2 rounded-lg">
-<span class="material-symbols-outlined text-primary">school</span>
-</div>
-<div>
-<h1 class="text-xl font-bold leading-none">ClassControl</h1>
-<span class="text-xs text-slate-500 font-medium uppercase tracking-wider">Gestión Académica SENA</span>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white dark:border-slate-900"></span>
-</button>
-<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
-<div class="flex items-center gap-3 cursor-pointer group">
-<div class="text-right hidden sm:block">
-<p class="text-sm font-semibold leading-none">Admin Sistema</p>
-<p class="text-xs text-slate-500">Sede Central</p>
-</div>
-<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden border-2 border-transparent group-hover:border-primary transition-all">
-<img class="w-full h-full object-cover" data-alt="Avatar de administrador de perfil" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyozBpjjjQSpBYL9es4vLiKTF61vSzKaTzxBfglJbBOHweZiQTtm2om6dhKfBy0vSJb3GRKgl-PKkrdX0VxRZQH0CsvzH6JBF89_9X62vG-PjOvfCxBuG6kb3JoimyedWT0yT4NZ_zKugkSEIJ3gROg7LUVSH9_VlOWciWSkSrwChuyG4eKaofmyFmex4ZvjpiaxQ5poz5TDFzLVOqLLWp0n1SGwX4YttLxU1qWdokkKEO28yig7UliSAv0s490sZ9LGjRg-BgSI"/>
-</div>
-</div>
-</div>
-</header>
-<!-- Main Content -->
-<main class="flex-1 flex items-center justify-center p-6 md:p-12">
-<div class="w-full max-w-4xl bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-<div class="flex flex-col md:flex-row">
-<!-- Sidebar Decoration -->
-<div class="md:w-1/3 bg-slate-50 dark:bg-slate-800/50 p-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
-<div class="mb-8">
-<span class="material-symbols-outlined text-4xl text-primary mb-4">person_add</span>
-<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Registro de Usuarios</h2>
-<p class="mt-2 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                Ingrese los datos para dar de alta un nuevo integrante en la plataforma institucional.
-                            </p>
-</div>
-<div class="space-y-6">
-<div class="flex items-start gap-3">
-<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-primary text-sm">info</span>
-</div>
-<div>
-<p class="text-sm font-semibold">Datos Personales</p>
-<p class="text-xs text-slate-500">Información básica y contacto</p>
-</div>
-</div>
-<div class="flex items-start gap-3">
-<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-slate-400 text-sm">security</span>
-</div>
-<div>
-<p class="text-sm font-semibold">Seguridad</p>
-<p class="text-xs text-slate-500">Credenciales de acceso</p>
-</div>
-</div>
-<div class="flex items-start gap-3">
-<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-slate-400 text-sm">badge</span>
-</div>
-<div>
-<p class="text-sm font-semibold">Roles</p>
-<p class="text-xs text-slate-500">Permisos en el sistema</p>
-</div>
-</div>
-</div>
-<div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
-<div class="bg-primary/5 p-4 rounded-lg">
-<p class="text-xs text-slate-600 dark:text-slate-400 italic">
-                                    "La formación profesional integral es el proceso educativo teórico-práctico de carácter integral."
-                                </p>
-</div>
-</div>
-</div>
-<!-- Form Section -->
-<div class="md:w-2/3 p-8">
-<form action="Inicio de sesion.html" method="GET" class="space-y-6">
-<!-- Personal Details Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Nombres</label>
-<input class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="Ej: Juan Alberto" type="text"/>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Apellidos</label>
-<input class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="Ej: Pérez Castro" type="text"/>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Tipo de documento</label>
-<select class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
-<option value="">Seleccione tipo</option>
-<option value="cc">Cédula de Ciudadanía</option>
-<option value="ti">Tarjeta de Identidad</option>
-<option value="ce">Cédula de Extranjería</option>
-<option value="pas">Pasaporte</option>
-</select>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Identificación </label>
-<input class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="Número de documento" type="number"/>
-</div>
-</div>
-<!-- Contact & Account Details -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="col-span-1 sm:col-span-2">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Correo Electrónico</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">mail</span>
-<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="ejemplo@sena.edu.co" type="email"/>
-</div>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Teléfono</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">call</span>
-<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="300 123 4567" type="tel"/>
-</div>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Rol del Usuario</label>
-<select class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all">
-<option value="">Seleccione rol</option>
-<option value="instructor">Instructor</option>
-<option value="jefe">Jefe de estudios</option>
-<option value="admin">Administrador</option>
-</select>
-</div>
-</div>
-<!-- Credentials Section -->
-<div class="pt-4 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="col-span-1 sm:col-span-2">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Username (Nombre de usuario)</label>
-<input class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="Ej: jperca01" type="text"/>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Contraseña</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock</span>
-<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="••••••••" type="password"/>
-</div>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-semibold mb-1 text-slate-700 dark:text-slate-300">Confirmar contraseña</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock_reset</span>
-<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="••••••••" type="password"/>
-</div>
-</div>
-</div>
-<div class="flex items-center gap-4 pt-4">
-<button class="flex-1 bg-sena-green hover:bg-[#2e8a00] text-white font-bold py-3 px-6 rounded-lg transition-all shadow-lg shadow-sena-green/20 flex items-center justify-center gap-2" type="submit">
-<span class="material-symbols-outlined">person_add</span>
-                                    Crear usuario
-                                </button>
-<button class="px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all" type="button">
-                                    Cancelar
-                                </button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="p-6 text-center text-slate-500 text-sm">
-<p>© 2024 ClassControl (SENA) - Sistema de Control de Formación Profesional</p>
-</footer>
-</div>
-</body></html>
+
+<body>
+
+  <!-- ===================== TOP NAV ===================== -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <div class="brand-icon">
+        <span class="material-symbols-outlined">school</span>
+      </div>
+      <div>
+        <div class="brand-name">ClassControl</div>
+        <div class="brand-sub">Gestión Académica SENA</div>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="nav-notif" aria-label="Notificaciones">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="notif-dot"></span>
+      </button>
+
+      <div class="nav-divider"></div>
+
+      <div class="nav-user">
+        <div class="user-info">
+          <div class="user-name">Admin Sistema</div>
+          <div class="user-role">Sede Central</div>
+        </div>
+        <div class="avatar">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyozBpjjjQSpBYL9es4vLiKTF61vSzKaTzxBfglJbBOHweZiQTtm2om6dhKfBy0vSJb3GRKgl-PKkrdX0VxRZQH0CsvzH6JBF89_9X62vG-PjOvfCxBuG6kb3JoimyedWT0yT4NZ_zKugkSEIJ3gROg7LUVSH9_VlOWciWSkSrwChuyG4eKaofmyFmex4ZvjpiaxQ5poz5TDFzLVOqLLWp0n1SGwX4YttLxU1qWdokkKEO28yig7UliSAv0s490sZ9LGjRg-BgSI"
+               alt="Avatar administrador" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ===================== MAIN ===================== -->
+  <main>
+    <div class="reg-card">
+
+      <!-- Sidebar / Steps panel -->
+      <aside class="reg-sidebar">
+        <div class="sidebar-intro">
+          <span class="material-symbols-outlined sidebar-icon">person_add</span>
+          <h2>Registro de Usuarios</h2>
+          <p>Ingrese los datos para dar de alta un nuevo integrante en la plataforma institucional.</p>
+        </div>
+
+        <div class="steps">
+          <!-- Step 1 -->
+          <div class="step-item" id="step1">
+            <div class="step-icon active">
+              <span class="material-symbols-outlined">info</span>
+            </div>
+            <div class="step-text">
+              <div class="step-title">Datos Personales</div>
+              <div class="step-sub">Información básica y contacto</div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-item" id="step2">
+            <div class="step-icon inactive">
+              <span class="material-symbols-outlined">security</span>
+            </div>
+            <div class="step-text">
+              <div class="step-title">Seguridad</div>
+              <div class="step-sub">Credenciales de acceso</div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-item" id="step3">
+            <div class="step-icon inactive">
+              <span class="material-symbols-outlined">badge</span>
+            </div>
+            <div class="step-text">
+              <div class="step-title">Roles</div>
+              <div class="step-sub">Permisos en el sistema</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-quote">
+          <div class="quote-box">
+            <p>"La formación profesional integral es el proceso educativo teórico-práctico de carácter integral."</p>
+          </div>
+        </div>
+      </aside>
+
+
+      <!-- Form section -->
+      <div class="reg-form-section">
+
+        <form id="registerForm" action="Inicio de sesion.html" method="post" novalidate>
+
+          <!-- ── Datos Personales ── -->
+          <div class="form-section-title">
+            <span class="material-symbols-outlined" style="font-size:15px;color:var(--color-primary)">person</span>
+            Datos Personales
+          </div>
+
+          <div class="form-grid">
+            <!-- Nombres -->
+            <div class="form-group">
+              <label for="fNombres">Nombres <span class="required">*</span></label>
+              <input id="fNombres" type="text" placeholder="Ej: Juan Alberto" autocomplete="given-name" />
+              <span id="fNombresError" class="field-error"></span>
+            </div>
+
+            <!-- Apellidos -->
+            <div class="form-group">
+              <label for="fApellidos">Apellidos <span class="required">*</span></label>
+              <input id="fApellidos" type="text" placeholder="Ej: Pérez Castro" autocomplete="family-name" />
+              <span id="fApellidosError" class="field-error"></span>
+            </div>
+
+            <!-- Tipo de documento -->
+            <div class="form-group">
+              <label for="fTipoDoc">Tipo de Documento <span class="required">*</span></label>
+              <select id="fTipoDoc">
+                <option value="">— Seleccione tipo —</option>
+                <option value="cc">Cédula de Ciudadanía</option>
+                <option value="ti">Tarjeta de Identidad</option>
+                <option value="ce">Cédula de Extranjería</option>
+                <option value="pas">Pasaporte</option>
+              </select>
+              <span id="fTipoDocError" class="field-error"></span>
+            </div>
+
+            <!-- Número de documento -->
+            <div class="form-group">
+              <label for="fDocumento">Número de Identificación <span class="required">*</span></label>
+              <input id="fDocumento" type="text" placeholder="Número de documento"
+                     inputmode="numeric" maxlength="12" autocomplete="off" />
+              <span id="fDocumentoError" class="field-error"></span>
+            </div>
+          </div>
+
+
+          <!-- ── Contacto ── -->
+          <div class="form-section-title">
+            <span class="material-symbols-outlined" style="font-size:15px;color:var(--color-primary)">contact_mail</span>
+            Contacto
+          </div>
+
+          <div class="form-grid" style="margin-bottom:22px">
+            <!-- Email (full width) -->
+            <div class="form-group col-full">
+              <label for="fEmail">Correo Electrónico <span class="required">*</span></label>
+              <div class="input-icon-wrap">
+                <span class="material-symbols-outlined field-icon">mail</span>
+                <input id="fEmail" type="email" placeholder="ejemplo@sena.edu.co"
+                       autocomplete="email" />
+              </div>
+              <span id="fEmailError" class="field-error"></span>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="form-group">
+              <label for="fTelefono">Teléfono <span class="required">*</span></label>
+              <div class="input-icon-wrap">
+                <span class="material-symbols-outlined field-icon">call</span>
+                <input id="fTelefono" type="tel" placeholder="300 123 4567"
+                       autocomplete="tel" />
+              </div>
+              <span id="fTelefonoError" class="field-error"></span>
+            </div>
+
+            <!-- Rol -->
+            <div class="form-group">
+              <label for="fRol">Rol del Usuario <span class="required">*</span></label>
+              <select id="fRol">
+                <option value="">— Seleccione rol —</option>
+                <option value="instructor">Instructor</option>
+                <option value="aprendiz">Aprendiz</option>
+                <option value="admin">Administrador</option>
+              </select>
+              <span id="fRolError" class="field-error"></span>
+            </div>
+          </div>
+
+
+          <!-- ── Credenciales ── -->
+          <div class="form-section-title">
+            <span class="material-symbols-outlined" style="font-size:15px;color:var(--color-primary)">lock</span>
+            Credenciales de Acceso
+          </div>
+
+          <div class="form-grid">
+            <!-- Username (full width) -->
+            <div class="form-group col-full">
+              <label for="fUsername">Nombre de Usuario <span class="required">*</span></label>
+              <input id="fUsername" type="text" placeholder="Ej: jperez01"
+                     maxlength="20" autocomplete="username" spellcheck="false" />
+              <span id="fUsernameError" class="field-error"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="fPassword">Contraseña <span class="required">*</span></label>
+              <div class="input-icon-wrap">
+                <span class="material-symbols-outlined field-icon">lock</span>
+                <input id="fPassword" type="password" placeholder="••••••••"
+                       autocomplete="new-password" />
+                <button type="button" class="toggle-password material-symbols-outlined"
+                        data-target="fPassword" aria-label="Mostrar contraseña">visibility</button>
+              </div>
+              <div id="pwStrength" class="pw-strength">
+                <div class="pw-bars">
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                  <div class="pw-bar"></div>
+                </div>
+                <span id="pwLabel" class="pw-label"></span>
+              </div>
+              <span id="fPasswordError" class="field-error"></span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label for="fConfirm">Confirmar Contraseña <span class="required">*</span></label>
+              <div class="input-icon-wrap">
+                <span class="material-symbols-outlined field-icon">lock_reset</span>
+                <input id="fConfirm" type="password" placeholder="••••••••"
+                       autocomplete="new-password" />
+                <button type="button" class="toggle-password material-symbols-outlined"
+                        data-target="fConfirm" aria-label="Mostrar contraseña">visibility</button>
+              </div>
+              <span id="fConfirmError" class="field-error"></span>
+            </div>
+          </div>
+
+
+          <!-- ── Actions ── -->
+          <div class="form-actions">
+            <button id="submitBtn" type="submit" class="btn btn-submit">
+              <div class="btn-spinner"></div>
+              <span class="btn-label" style="display:flex;align-items:center;gap:8px">
+                <span class="material-symbols-outlined" style="font-size:20px">person_add</span>
+                Crear Usuario
+              </span>
+            </button>
+
+            <button id="cancelBtn" type="button" class="btn btn-cancel">
+              Cancelar
+            </button>
+          </div>
+
+        </form><!-- /form -->
+
+      </div><!-- /reg-form-section -->
+
+    </div><!-- /reg-card -->
+  </main>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <p>© 2024 ClassControl (SENA) — Sistema de Control de Formación Profesional</p>
+  </footer>
+
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <span id="toastIcon" class="material-symbols-outlined toast-icon">check_circle</span>
+    <span class="toast-msg"></span>
+  </div>
+
+
+  <!-- JavaScript -->
+  <script src="Registrar usuarioJS.js"></script>
+
+</body>
+</html>

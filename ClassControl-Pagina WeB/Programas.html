@@ -1,421 +1,315 @@
 <!DOCTYPE html>
-
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Emerald Academic - Gestión de Programas</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "tertiary-container": "#ffedd5",
-                    "on-secondary-fixed-variant": "#075985",
-                    "tertiary": "#ea580c",
-                    "background": "#f6f8f5",
-                    "on-secondary": "#ffffff",
-                    "on-background": "#00304d",
-                    "on-secondary-container": "#0369a1",
-                    "secondary-fixed": "#e0f2fe",
-                    "surface-container-highest": "#cbd5e1",
-                    "secondary": "#00304d",
-                    "primary-fixed-dim": "#bbf7d0",
-                    "primary-container": "rgba(56, 168, 0, 0.1)",
-                    "tertiary-fixed-dim": "#fed7aa",
-                    "on-error": "#ffffff",
-                    "surface-variant": "#f1f5f9",
-                    "inverse-surface": "#1e293b",
-                    "on-primary-container": "#38a800",
-                    "error": "#dc2626",
-                    "secondary-container": "#e0f2fe",
-                    "on-error-container": "#991b1b",
-                    "secondary-fixed-dim": "#bae6fd",
-                    "inverse-primary": "#86efac",
-                    "primary-fixed": "#dcfce7",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-fixed": "#14532d",
-                    "surface-container": "#f1f5f9",
-                    "outline-variant": "#cbd5e1",
-                    "on-tertiary-fixed-variant": "#7c2d12",
-                    "outline": "#e2e8f0",
-                    "surface": "#ffffff",
-                    "surface-container-low": "#f8fafc",
-                    "on-tertiary-fixed": "#431407",
-                    "on-primary": "#ffffff",
-                    "on-primary-fixed-variant": "#166534",
-                    "surface-bright": "#ffffff",
-                    "primary": "#38a800",
-                    "on-surface-variant": "#64748b",
-                    "on-secondary-fixed": "#082f49",
-                    "surface-container-lowest": "#ffffff",
-                    "tertiary-fixed": "#ffedd5",
-                    "error-container": "#fee2e2",
-                    "on-tertiary-container": "#9a3412",
-                    "surface-container-high": "#e2e8f0",
-                    "surface-tint": "#38a800",
-                    "surface-dim": "#f1f5f9",
-                    "on-surface": "#00304D",
-                    "inverse-on-surface": "#f8fafc"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "fontFamily": {
-                    "headline": ["Inter"],
-                    "body": ["Inter"],
-                    "label": ["Inter"]
-            }
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Gestión de Programas - ClassControl</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary":          "#38a800",
+            "primary-dark":     "#2d8600",
+            "background-light": "#f6f8f5",
+            "background-dark":  "#16230f",
+            "sena-dark":        "#00304D",
+            "accent-blue":      "#1e40af",
           },
+          fontFamily: { "display": ["Inter"] },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
         },
-      }
-    </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            line-height: 1;
-            text-transform: none;
-            letter-spacing: normal;
-            word-wrap: normal;
-            white-space: nowrap;
-            direction: ltr;
-        }
-    </style>
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="ProgramasCSS.css"/>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
 
-<aside class="fixed left-0 top-0 h-screen flex flex-col bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 w-72 z-50">
-<div class="px-6 py-8">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg">
-<img alt="Logo SENA verde" data-alt="Logo oficial del SENA en color verde" src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"/>
-</div>
-<div>
-<h1 class="text-xl font-bold leading-none">ClassControl</h1>
-<p class="text-xs text-primary font-medium">Gestión Educativa</p>
-</div>
-</div>
-</div>
-<nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-medium" href="Pagina Principal.html">
-<span class="material-symbols-outlined">dashboard</span>
-<span>Inicio</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Fichas.html">
-<span class="material-symbols-outlined">description</span>
-<span>Fichas</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Instructores.html">
-<span class="material-symbols-outlined">groups</span>
-<span>Instructores</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programas.html">
-<span class="material-symbols-outlined">school</span>
-<span>Programas</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Ambientes.html">
-<span class="material-symbols-outlined">meeting_room</span>
-<span>Ambientes</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Competencias.html">
-<span class="material-symbols-outlined">target</span>
-<span>Competencias</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Actividades.html">
-<span class="material-symbols-outlined">assignment_turned_in</span>
-<span>Actividades</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programacion instructores.html">
-<span class="material-symbols-outlined">calendar_month</span>
-<span>Programación</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors border-t border-white/10 mt-2 pt-4" href="#">
-<span class="material-symbols-outlined">analytics</span>
-<span>Reportes</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-<span class="material-symbols-outlined">manage_accounts</span>
-<span>Usuarios</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-<span class="material-symbols-outlined">person</span>
-<span>Mi Perfil</span>
-</a>
-</nav>
-<div class="mt-auto p-4 bg-slate-100/50 dark:bg-slate-800/50 rounded-t-xl">
-<button class="w-full bg-primary text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all scale-98 active:opacity-80">
-<span class="material-symbols-outlined">add_circle</span>
-                Nuevo Programa
+<div class="flex min-h-screen">
+
+  <!-- ===== Sidebar (idéntico a Actividades) ===== -->
+  <aside class="w-64 bg-sena-dark text-white flex flex-col shrink-0">
+    <div class="p-6 flex flex-col gap-1">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="bg-white p-1 rounded-lg">
+          <img alt="Logo SENA" src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"/>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold leading-none">ClassControl</h1>
+          <p class="text-xs text-primary font-medium">Gestión Educativa</p>
+        </div>
+      </div>
+
+      <nav class="flex flex-col gap-1">
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Pagina Principal.html">
+          <span class="material-symbols-outlined">dashboard</span><span>Inicio</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Fichas.html">
+          <span class="material-symbols-outlined">description</span><span>Fichas</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Instructores.html">
+          <span class="material-symbols-outlined">groups</span><span>Instructores</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-medium" href="Programas.html">
+          <span class="material-symbols-outlined">school</span><span>Programas</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Ambientes.html">
+          <span class="material-symbols-outlined">meeting_room</span><span>Ambientes</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Competencias.html">
+          <span class="material-symbols-outlined">target</span><span>Competencias</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Actividades.html">
+          <span class="material-symbols-outlined">assignment_turned_in</span><span>Actividades</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programacion instructores.html">
+          <span class="material-symbols-outlined">calendar_month</span><span>Programación</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors border-t border-white/10 mt-2 pt-4" href="#">
+          <span class="material-symbols-outlined">analytics</span><span>Reportes</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+          <span class="material-symbols-outlined">manage_accounts</span><span>Usuarios</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+          <span class="material-symbols-outlined">person</span><span>Mi Perfil</span>
+        </a>
+      </nav>
+
+      <!-- User card -->
+      <div class="p-4 bg-slate-50 dark:bg-slate-800/50 m-4 rounded-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
+            <img alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC47qtltaWygGkaLmhJsAk5SHC5TqnoVHsO_Pm6E2iA3BVRB18DexiSVlRiULaL1HNjqUV_lk5bTIjNp5Z4wT-LB5MIItOfoIiNW7juD6nR9G7BwvIvj5n-qy96C0TV3CtABEwqXdWy-A3pX8SV5F0y1d75Tzleo6Bl7rmg-Ns4mv7adavlZTBDrZU-1EgB1EQX2zyw1vG1XYjTK3EBcO-D4nVpUnzbWpXfFrtIvgvMmZRgpgAvl8uUL_oFmTAgHpXeqQb6LAlXz6o"/>
+          </div>
+          <div class="overflow-hidden">
+            <p class="text-xs font-bold truncate">Coordinación Académica</p>
+            <p class="text-[10px] text-slate-500 truncate">SENA Centro Metalmecánico</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <main class="ml-10 flex-1 p-8">
+
+    <!-- Header -->
+    <header class="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-3xl font-extrabold text-accent-blue dark:text-white tracking-tight">
+          Gestión de Programas
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-1">
+          Administra y parametriza la oferta educativa institucional.
+        </p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="btn-descargar"
+          class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2.5 rounded-lg font-semibold flex items-center gap-2 hover:bg-slate-50 transition-colors shadow-sm text-sm">
+          <span class="material-symbols-outlined text-sm">file_download</span>
+          Descargar Reporte
+        </button>
+        <button id="btn-nuevo-programa"
+          class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/25 active:scale-95">
+          <span class="material-symbols-outlined">add_circle</span>
+          Nuevo Programa
+        </button>
+      </div>
+    </header>
+
+    <!-- Métricas -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" id="metricas"></div>
+
+    <!-- ===== Filtros (FORM) ===== -->
+    <section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
+      <form id="form-filtros" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+
+          <!-- Búsqueda -->
+          <div class="lg:col-span-2 relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+            <input id="filtro-busqueda" name="busqueda" type="text"
+              placeholder="Buscar por nombre, código..."
+              class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm"/>
+          </div>
+
+          <!-- Nivel -->
+          <div class="relative">
+            <select id="filtro-nivel" name="nivel"
+              class="w-full pl-3 pr-10 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 appearance-none focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm">
+              <option value="">Nivel de Formación</option>
+              <option value="Técnico">Técnico</option>
+              <option value="Tecnólogo">Tecnólogo</option>
+              <option value="Especialización">Especialización</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+          </div>
+
+          <!-- Estado -->
+          <div class="relative">
+            <select id="filtro-estado" name="estado"
+              class="w-full pl-3 pr-10 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 appearance-none focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm">
+              <option value="">Estado</option>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+          </div>
+
+          <!-- Limpiar -->
+          <div class="flex gap-2">
+            <button type="submit" id="btn-filtrar"
+              class="flex-1 bg-sena-dark hover:bg-sena-dark/90 text-white font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all text-sm">
+              <span class="material-symbols-outlined text-sm">filter_list</span>
+              Filtrar
             </button>
+            <button type="reset" id="btn-limpiar"
+              class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 p-2.5 rounded-lg transition-colors" title="Limpiar filtros">
+              <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">filter_alt_off</span>
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== Tabla ===== -->
+    <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Código</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Nombre del Programa</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Nivel</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Versión</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-programas" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
+        </table>
+      </div>
+
+      <!-- Paginación -->
+      <footer class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <span id="contador-programas" class="text-xs text-slate-500 dark:text-slate-400"></span>
+        <div id="paginacion" class="flex items-center gap-2"></div>
+      </footer>
+    </div>
+
+  </main>
 </div>
-<div class="p-4 border-t border-slate-200 dark:border-slate-800 space-y-1 font-inter text-[14px] font-medium">
-<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-[#00304d] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 rounded-lg" href="#">
-<span class="material-symbols-outlined">settings</span>
-                Configuración
-            </a>
-<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:text-[#00304d] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 rounded-lg" href="#">
-<span class="material-symbols-outlined">help</span>
-                Ayuda
-            </a>
+
+<!-- ===== Modal Nuevo / Editar Programa ===== -->
+<div id="modal-programa" class="modal-overlay hidden">
+  <div class="modal-container bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-lg p-8">
+    <div class="flex items-center justify-between mb-6">
+      <h3 id="modal-titulo" class="text-xl font-bold text-slate-800 dark:text-white">Nuevo Programa</h3>
+      <button id="btn-cerrar-modal" class="text-slate-400 hover:text-slate-600 transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <form id="form-programa" novalidate>
+      <input type="hidden" id="prog-id" name="id"/>
+      <div class="grid grid-cols-1 gap-5">
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="form-label" for="prog-codigo">Código <span class="text-red-500">*</span></label>
+            <input id="prog-codigo" name="codigo" type="text" required
+              class="input-field w-full" placeholder="Ej. 228106"/>
+            <p class="error-msg hidden text-xs text-red-500 mt-1">Este campo es obligatorio.</p>
+          </div>
+          <div>
+            <label class="form-label" for="prog-version">Versión <span class="text-red-500">*</span></label>
+            <input id="prog-version" name="version" type="number" min="1" required
+              class="input-field w-full" placeholder="Ej. 102"/>
+            <p class="error-msg hidden text-xs text-red-500 mt-1">Ingresa la versión.</p>
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label" for="prog-nombre">Nombre del Programa <span class="text-red-500">*</span></label>
+          <input id="prog-nombre" name="nombre" type="text" required
+            class="input-field w-full" placeholder="Ej. Análisis y Desarrollo de Software"/>
+          <p class="error-msg hidden text-xs text-red-500 mt-1">Este campo es obligatorio.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="form-label" for="prog-nivel">Nivel <span class="text-red-500">*</span></label>
+            <select id="prog-nivel" name="nivel" required class="input-field w-full">
+              <option value="">Seleccionar...</option>
+              <option value="Técnico">Técnico</option>
+              <option value="Tecnólogo">Tecnólogo</option>
+              <option value="Especialización">Especialización</option>
+            </select>
+            <p class="error-msg hidden text-xs text-red-500 mt-1">Selecciona un nivel.</p>
+          </div>
+          <div>
+            <label class="form-label" for="prog-estado">Estado <span class="text-red-500">*</span></label>
+            <select id="prog-estado" name="estado" required class="input-field w-full">
+              <option value="">Seleccionar...</option>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+            <p class="error-msg hidden text-xs text-red-500 mt-1">Selecciona un estado.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-end gap-3 mt-8">
+        <button type="button" id="btn-cancelar"
+          class="px-5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-medium hover:bg-slate-50 transition-colors text-sm">
+          Cancelar
+        </button>
+        <button type="submit"
+          class="px-6 py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-lg shadow-primary/25 active:scale-95 text-sm flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">save</span>
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
-</aside>
-<!-- Main Content Area -->
-<main class="ml-72 min-h-screen">
-<!-- TopAppBar Shell -->
-<header class="sticky top-0 right-0 z-40 flex justify-between items-center px-8 py-4 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm shadow-sm dark:shadow-none border-b border-slate-100 dark:border-slate-800">
-<div class="flex items-center gap-8">
-<h2 class="text-xl font-black text-[#00304d] dark:text-white font-inter">Gestión de Programas</h2>
+
+<!-- ===== Modal Confirmar Eliminar ===== -->
+<div id="modal-eliminar" class="modal-overlay hidden">
+  <div class="modal-container bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-sm p-8 text-center">
+    <div class="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+      <span class="material-symbols-outlined text-red-500 text-3xl">delete_forever</span>
+    </div>
+    <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">¿Eliminar programa?</h3>
+    <p class="text-sm text-slate-500 mb-6">Esta acción no se puede deshacer.</p>
+    <div class="flex justify-center gap-3">
+      <button id="btn-cancelar-eliminar"
+        class="px-5 py-2.5 rounded-lg border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 transition-colors text-sm">
+        Cancelar
+      </button>
+      <button id="btn-confirmar-eliminar"
+        class="px-5 py-2.5 rounded-lg bg-red-500 hover:bg-red-600 text-white font-bold transition-colors text-sm flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">delete</span>
+        Eliminar
+      </button>
+    </div>
+  </div>
 </div>
-<div class="flex items-center gap-4">
-<div class="relative group">
-<span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
-<span class="material-symbols-outlined text-sm">search</span>
-</span>
-<input class="pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border-none rounded-lg text-sm w-64 focus:ring-2 focus:ring-[#38a800] transition-all outline-none" placeholder="Buscar programas..." type="text"/>
+
+<!-- ===== Toast ===== -->
+<div id="toast" class="hidden fixed bottom-6 right-6 bg-slate-800 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 text-sm font-medium z-50 toast-anim">
+  <span id="toast-icon" class="material-symbols-outlined text-primary">check_circle</span>
+  <span id="toast-msg">Operación exitosa</span>
 </div>
-<div class="flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-4">
-<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<button class="flex items-center gap-2 p-1 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors group">
-<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-primary/20" data-alt="professional headshot of a middle-aged academic administrator in a light blue shirt with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAneFnQdC6YbVhflGMnMHtiH_koao8zBYv7IdqGyG0MipijWYo8u74h3M60xsYYw-cu-ZZj89Y0CJXac3XRn8fefLRYiHVvgJwJ3yUWcLpg_sMOK3MmOSR02OEEFrp5qjbS6W6lSv25r0t2JhJ9EdMNT8oe5z03A0nVShLW1GWuptbepCsYq_d00uJny226OrmCOwAOKwGKlwgzyzqE8zHDaZa9lifj0k-4beZBacV9hgNr4r2QYHBrRYpqVOmhzs-djpBWfP2Chwo"/>
-<span class="material-symbols-outlined text-slate-500 group-hover:text-primary transition-colors">account_circle</span>
-</button>
-</div>
-</div>
-</header>
-<!-- Canvas Content -->
-<div class="p-8">
-<!-- Header Section -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-<div>
-<div class="flex items-center gap-2 mb-2">
-<span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] bg-primary/10 px-2 py-1 rounded">Académico</span>
-</div>
-<h3 class="text-3xl font-bold text-on-background">Programas de Formación</h3>
-<p class="text-on-surface-variant mt-1">Administra y parametriza la oferta educativa institucional.</p>
-</div>
-<div class="flex items-center gap-3">
-<button class="bg-white dark:bg-slate-900 text-on-background border border-outline font-semibold px-4 py-2.5 rounded-lg flex items-center gap-2 hover:bg-slate-50 transition-colors shadow-sm">
-<span class="material-symbols-outlined">file_download</span>
-                        Descargar Reporte
-                    </button>
-</div>
-</div>
-<!-- Dashboard Style Metrics (Small) -->
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border-l-4 border-primary">
-<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">Total Programas</p>
-<p class="text-2xl font-bold">124</p>
-</div>
-<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border-l-4 border-secondary">
-<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">Técnicos</p>
-<p class="text-2xl font-bold">48</p>
-</div>
-<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border-l-4 border-on-secondary-container">
-<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">Tecnólogos</p>
-<p class="text-2xl font-bold">62</p>
-</div>
-<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border-l-4 border-tertiary">
-<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">Especialización</p>
-<p class="text-2xl font-bold">14</p>
-</div>
-</div>
-<!-- Filters Area -->
-<div class="bg-surface-container-low p-6 rounded-2xl mb-6">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
-<div class="md:col-span-5">
-<label class="block text-[10px] font-bold text-on-surface-variant uppercase mb-2 ml-1">Búsqueda Avanzada</label>
-<div class="relative">
-<span class="absolute inset-y-0 left-4 flex items-center text-slate-400">
-<span class="material-symbols-outlined">search</span>
-</span>
-<input class="w-full pl-12 pr-4 py-3 bg-white border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm" placeholder="Ej: Análisis y Desarrollo de Software" type="text"/>
-</div>
-</div>
-<div class="md:col-span-3">
-<label class="block text-[10px] font-bold text-on-surface-variant uppercase mb-2 ml-1">Nivel de Formación</label>
-<select class="w-full px-4 py-3 bg-white border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm appearance-none">
-<option>Todos los niveles</option>
-<option>Técnico</option>
-<option>Tecnólogo</option>
-<option>Especialización Tecnológica</option>
-</select>
-</div>
-<div class="md:col-span-2">
-<label class="block text-[10px] font-bold text-on-surface-variant uppercase mb-2 ml-1">Estado</label>
-<select class="w-full px-4 py-3 bg-white border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all shadow-sm">
-<option>Todos</option>
-<option>Activo</option>
-<option>Inactivo</option>
-</select>
-</div>
-<div class="md:col-span-2">
-<button class="w-full py-3 bg-secondary text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all">
-<span class="material-symbols-outlined">filter_list</span>
-                            Filtrar
-                        </button>
-</div>
-</div>
-</div>
-<!-- Table Container -->
-<div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm overflow-hidden border border-slate-100 dark:border-slate-800">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-800">
-<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Código</th>
-<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Nombre del Programa</th>
-<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Nivel</th>
-<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-wider text-center">Versión</th>
-<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Estado</th>
-<th class="px-6 py-4 text-[11px] font-bold text-on-surface-variant uppercase tracking-wider text-right">Acciones</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors group">
-<td class="px-6 py-4 font-mono text-xs text-on-surface-variant">228106</td>
-<td class="px-6 py-4 font-semibold text-on-background">Análisis y Desarrollo de Software</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-on-secondary-container/10 text-on-secondary-container">
-<span class="w-1.5 h-1.5 rounded-full bg-on-secondary-container"></span>
-                                    Tecnólogo
-                                </span>
-</td>
-<td class="px-6 py-4 text-center font-medium">102</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-                                    Activo
-                                </span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-xl">edit_square</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors group">
-<td class="px-6 py-4 font-mono text-xs text-on-surface-variant">524105</td>
-<td class="px-6 py-4 font-semibold text-on-background">Sistemas Telemáticos</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                                    Técnico
-                                </span>
-</td>
-<td class="px-6 py-4 text-center font-medium">1</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-                                    Activo
-                                </span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-xl">edit_square</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors group">
-<td class="px-6 py-4 font-mono text-xs text-on-surface-variant">123512</td>
-<td class="px-6 py-4 font-semibold text-on-background">Gestión de Talento Humano</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-tertiary/10 text-tertiary">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                                    Especialización
-                                </span>
-</td>
-<td class="px-6 py-4 text-center font-medium">12</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-slate-100 text-on-surface-variant">
-<span class="material-symbols-outlined text-[14px]">cancel</span>
-                                    Inactivo
-                                </span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-xl">edit_square</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors group">
-<td class="px-6 py-4 font-mono text-xs text-on-surface-variant">228118</td>
-<td class="px-6 py-4 font-semibold text-on-background">Programación de Aplicaciones para Dispositivos Móviles</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                                    Técnico
-                                </span>
-</td>
-<td class="px-6 py-4 text-center font-medium">3</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-[14px]">check_circle</span>
-                                    Activo
-                                </span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-xl">edit_square</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<!-- Pagination Footer -->
-<div class="px-6 py-4 bg-slate-50/50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-<p class="text-sm text-on-surface-variant">Mostrando <span class="font-bold text-on-background">1-4</span> de <span class="font-bold text-on-background">124</span> programas</p>
-<div class="flex items-center gap-2">
-<button class="p-1 text-slate-400 hover:text-on-background disabled:opacity-30" disabled="">
-<span class="material-symbols-outlined">chevron_left</span>
-</button>
-<div class="flex items-center gap-1">
-<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-sm">1</button>
-<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white dark:hover:bg-slate-700 text-sm">2</button>
-<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white dark:hover:bg-slate-700 text-sm">3</button>
-<span class="px-1 text-slate-400">...</span>
-<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white dark:hover:bg-slate-700 text-sm">31</button>
-</div>
-<button class="p-1 text-slate-400 hover:text-on-background">
-<span class="material-symbols-outlined">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- FAB for quick action (Optional but helps UI flow) -->
-<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-lg shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all md:hidden">
-<span class="material-symbols-outlined text-2xl">add</span>
-</button>
-</body></html>
+
+<script src="ProgramasJS.js"></script>
+</body>
+</html>

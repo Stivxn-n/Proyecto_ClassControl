@@ -1,466 +1,417 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>ClassControl (SENA) - Gestión de Ambientes</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#38a800",
-              "background-light": "#f6f8f5",
-              "background-dark": "#16230f",
-              "sena-dark": "#00304D",
-            },
-            fontFamily: {
-              display: ["Inter"],
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClassControl – Gestión de Ambientes</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#38a800",
+            "background-light": "#f6f8f5",
+            "background-dark": "#16230f",
+            "sena-dark": "#00304D"
           },
-        },
-      };
-    </script>
-    <style>
-      body {
-        font-family: "Inter", sans-serif;
+          fontFamily: { display: ["Inter"] },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+        }
       }
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-    </style>
-  </head>
-  <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
-    <div class="flex min-h-screen">
+    };
+  </script>
 
-      <!-- Sidebar -->
-      <aside class="w-64 bg-sena-dark text-white flex flex-col shrink-0">
-        <div class="p-6 flex flex-col gap-1">
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="AmbientesCSS.css" />
+</head>
 
-          <!-- Logo -->
-          <div class="flex items-center gap-3 mb-8">
-            <div class="bg-white p-1 rounded-lg">
-              <img
-                alt="Logo SENA verde"
-                data-alt="Logo oficial del SENA en color verde"
-                src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"
-              />
-            </div>
-            <div>
-              <h1 class="text-xl font-bold leading-none">ClassControl</h1>
-              <p class="text-xs text-primary font-medium">Gestión Educativa</p>
-            </div>
-          </div>
+<body>
+<div class="app-wrapper">
 
-          <!-- Navigation -->
-          <nav class="flex flex-col gap-1">
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-medium" href="Pagina Principal.html">
-              <span class="material-symbols-outlined">dashboard</span>
-              <span>Inicio</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Fichas.html">
-              <span class="material-symbols-outlined">description</span>
-              <span>Fichas</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Instructores.html">
-              <span class="material-symbols-outlined">groups</span>
-              <span>Instructores</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-              <span class="material-symbols-outlined">school</span>
-              <span>Programas</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Ambientes.html">
-              <span class="material-symbols-outlined">meeting_room</span>
-              <span>Ambientes</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Competencias.html">
-              <span class="material-symbols-outlined">target</span>
-              <span>Competencias</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Actividades.html">
-              <span class="material-symbols-outlined">assignment_turned_in</span>
-              <span>Actividades</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programacion instructores.html">
-              <span class="material-symbols-outlined">calendar_month</span>
-              <span>Programación</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors border-t border-white/10 mt-2 pt-4" href="#">
-              <span class="material-symbols-outlined">analytics</span>
-              <span>Reportes</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-              <span class="material-symbols-outlined">manage_accounts</span>
-              <span>Usuarios</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-              <span class="material-symbols-outlined">person</span>
-              <span>Mi Perfil</span>
-            </a>
-          </nav>
+  <!-- ══════════════ SIDEBAR ══════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-box">
+        <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" alt="Logo SENA" />
+      </div>
+      <div>
+        <h1>ClassControl</h1>
+        <p>Gestión Educativa</p>
+      </div>
+    </div>
 
-          <!-- Logout -->
-          <div class="p-4 border-t border-primary/10">
-            <button class="flex items-center gap-3 w-full px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-950/20 hover:text-red-600 rounded-lg transition-colors">
-              <span class="material-symbols-outlined">logout</span>
-              <span class="text-sm font-medium">Cerrar Sesión</span>
-            </button>
-          </div>
+    <nav>
+      <a class="nav-link" href="Pagina_Principal.html">
+        <span class="material-symbols-outlined">dashboard</span><span>Inicio</span>
+      </a>
+      <a class="nav-link" href="Fichas.html">
+        <span class="material-symbols-outlined">description</span><span>Fichas</span>
+      </a>
+      <a class="nav-link" href="Instructores.html">
+        <span class="material-symbols-outlined">groups</span><span>Instructores</span>
+      </a>
+      <a class="nav-link" href="Programas.html">
+        <span class="material-symbols-outlined">school</span><span>Programas</span>
+      </a>
+      <a class="nav-link active" href="Ambientes.html">
+        <span class="material-symbols-outlined">meeting_room</span><span>Ambientes</span>
+      </a>
+      <a class="nav-link" href="Competencias.html">
+        <span class="material-symbols-outlined">target</span><span>Competencias</span>
+      </a>
+      <a class="nav-link" href="Actividades.html">
+        <span class="material-symbols-outlined">assignment_turned_in</span><span>Actividades</span>
+      </a>
+      <a class="nav-link" href="Programacion_instructores.html">
+        <span class="material-symbols-outlined">calendar_month</span><span>Programación</span>
+      </a>
+      <a class="nav-link nav-separator" href="#">
+        <span class="material-symbols-outlined">analytics</span><span>Reportes</span>
+      </a>
+      <a class="nav-link" href="#">
+        <span class="material-symbols-outlined">manage_accounts</span><span>Usuarios</span>
+      </a>
+      <a class="nav-link" href="#">
+        <span class="material-symbols-outlined">person</span><span>Mi Perfil</span>
+      </a>
+    </nav>
 
+    <div class="sidebar-logout">
+      <button class="logout-btn">
+        <span class="material-symbols-outlined">logout</span>
+        <span>Cerrar Sesión</span>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">© 2024 SENA ClassControl</div>
+  </aside>
+
+  <!-- ══════════════ MAIN ══════════════ -->
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <header class="top-header">
+      <!-- Búsqueda -->
+      <form class="search-form" role="search" onsubmit="return false">
+        <label for="search-input" class="sr-only">Buscar ambiente o sede</label>
+        <span class="material-symbols-outlined search-icon">search</span>
+        <input id="search-input" type="search" placeholder="Buscar ambiente o sede…" autocomplete="off" />
+      </form>
+
+      <div class="header-right">
+        <!-- Notificaciones -->
+        <button class="icon-btn-header" title="Notificaciones">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="notif-dot"></span>
+        </button>
+        <!-- Ayuda -->
+        <button class="icon-btn-header" title="Ayuda">
+          <span class="material-symbols-outlined">help</span>
+        </button>
+        <!-- Dark mode -->
+        <button id="dark-toggle" title="Cambiar tema">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+
+        <div class="divider-v"></div>
+
+        <!-- Usuario -->
+        <div class="user-info">
+          <p class="name">Admin Sena</p>
+          <p class="role">Coordinador TIC</p>
         </div>
-      </aside>
+        <div class="avatar">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKA9zGgD4TKFOmREgsv4egk9DFSJSXjfFD9jo9o-YIrKf9J3aPUK2vwVVaRdMT3Rt8iOASRsg3TPNHI23fn7uG_ClCGmSkLHQHaSgCnNPvvtFsJM5mCYJuvj49AdPrRCNqz3miTUgSpzsL3vwFeePVUcK_6xXAl3Pow7Fu7L3tuvgYQq6vt30kHd2ky25YpmXklNpCnNgqxRugd4hPNVvuRKP_aieIUXOk9SGOYpJWApIygHaYXhMyqY0hC6570OYoPXNMD5U5j9o"
+               alt="Avatar administrador" />
+        </div>
+      </div>
+    </header>
 
-      <!-- Main Content -->
-      <main class="flex-1 flex flex-col overflow-hidden">
+    <!-- PAGE BODY -->
+    <div class="page-body">
+      <div class="page-inner">
 
-        <!-- Header -->
-        <header class="h-16 border-b border-primary/10 bg-white dark:bg-background-dark/80 flex items-center justify-between px-8 z-10">
-          <div class="flex items-center gap-4 flex-1">
-            <div class="relative w-full max-w-md">
-              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-              <input
-                class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20"
-                placeholder="Buscar ambiente o sede..."
-                type="text"
-              />
-            </div>
+        <!-- Título + botón nuevo -->
+        <div class="page-title-row">
+          <div>
+            <h1>Gestión de Ambientes</h1>
+            <p>Administre los espacios de formación y su disponibilidad.</p>
           </div>
-          <div class="flex items-center gap-6">
-            <div class="flex items-center gap-2">
-              <button class="p-2 text-slate-500 hover:bg-primary/5 hover:text-primary rounded-lg relative">
-                <span class="material-symbols-outlined">notifications</span>
-                <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white dark:border-background-dark"></span>
-              </button>
-              <button class="p-2 text-slate-500 hover:bg-primary/5 hover:text-primary rounded-lg">
-                <span class="material-symbols-outlined">help</span>
-              </button>
-            </div>
-            <div class="h-8 w-px bg-primary/10"></div>
-            <div class="flex items-center gap-3">
-              <div class="text-right hidden sm:block">
-                <p class="text-sm font-bold leading-none">Admin Sena</p>
-                <p class="text-[11px] text-slate-500 mt-1 font-medium">Coordinador TIC</p>
-              </div>
-              <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
-                <img
-                  class="w-full h-full object-cover"
-                  data-alt="Avatar de usuario administrador"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKA9zGgD4TKFOmREgsv4egk9DFSJSXjfFD9jo9o-YIrKf9J3aPUK2vwVVaRdMT3Rt8iOASRsg3TPNHI23fn7uG_ClCGmSkLHQHaSgCnNPvvtFsJM5mCYJuvj49AdPrRCNqz3miTUgSpzsL3vwFeePVUcK_6xXAl3Pow7Fu7L3tuvgYQq6vt30kHd2ky25YpmXklNpCnNgqxRugd4hPNVvuRKP_aieIUXOk9SGOYpJWApIygHaYXhMyqY0hC6570OYoPXNMD5U5j9o"
-                />
-              </div>
-            </div>
-          </div>
-        </header>
+          <button class="btn-primary" data-modal-open="modal-ambiente">
+            <span class="material-symbols-outlined">add_circle</span>
+            Nuevo Ambiente
+          </button>
+        </div>
 
-        <!-- View Content -->
-        <div class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark p-8">
-          <div class="max-w-6xl mx-auto space-y-8">
-
-            <!-- Title & Actions -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div>
-                <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Gestión de Ambientes</h1>
-                <p class="text-slate-500 dark:text-slate-400 font-medium mt-1">Administre los espacios de formación y su disponibilidad.</p>
-              </div>
-              <a
-                href="Nuevo ambiente.html"
-                class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/25 active:scale-95"
-              >
-                <span class="material-symbols-outlined">add_circle</span>
-                Nueva Ambiente
-              </a>
-            </div>
-
-            <!-- Filters -->
-            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-primary/10 shadow-sm flex flex-wrap gap-4 items-end">
-              <div class="flex-1 min-w-[200px]">
-                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Filtrar por Sede</label>
-                <div class="relative">
-                  <select class="w-full appearance-none bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
-                    <option>Todas las Sedes</option>
+        <!-- FILTROS (FORM) -->
+        <div class="filters-card">
+          <form id="form-filtros" onsubmit="return false">
+            <div class="filters-form">
+              <!-- Sede -->
+              <div class="filter-group">
+                <label for="filter-sede">Filtrar por Sede</label>
+                <div class="select-wrap">
+                  <select id="filter-sede" class="form-control">
+                    <option value="">Todas las Sedes</option>
                     <option>Sede Central</option>
                     <option>Centro de Electricidad y Automatización</option>
                     <option>Centro de Diseño y Metrología</option>
                     <option>Sede TIC</option>
                   </select>
-                  <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                  <span class="material-symbols-outlined chevron">expand_more</span>
                 </div>
               </div>
-              <div class="flex-1 min-w-[200px]">
-                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tipo de Ambiente</label>
-                <div class="relative">
-                  <select class="w-full appearance-none bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
-                    <option>Todos los Tipos</option>
+
+              <!-- Tipo -->
+              <div class="filter-group">
+                <label for="filter-tipo">Tipo de Ambiente</label>
+                <div class="select-wrap">
+                  <select id="filter-tipo" class="form-control">
+                    <option value="">Todos los Tipos</option>
                     <option>Laboratorio</option>
                     <option>Aula Polivalente</option>
                     <option>Auditorio</option>
                     <option>Taller</option>
                   </select>
-                  <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+                  <span class="material-symbols-outlined chevron">expand_more</span>
                 </div>
               </div>
-              <button class="px-5 py-2.5 text-slate-600 dark:text-slate-400 font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors flex items-center gap-2 border border-slate-200 dark:border-slate-600">
-                <span class="material-symbols-outlined text-xl">filter_list</span>
-                <span>Limpiar Filtros</span>
-              </button>
-            </div>
 
-            <!-- Table -->
-            <div class="bg-white dark:bg-slate-800 rounded-xl border border-primary/10 shadow-sm overflow-hidden">
-              <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                  <thead>
-                    <tr class="bg-slate-50 dark:bg-slate-700/50">
-                      <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Nombre / Número</th>
-                      <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Sede</th>
-                      <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Capacidad</th>
-                      <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Tipo</th>
-                      <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado Actual</th>
-                      <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-slate-100 dark:divide-slate-700">
-
-                    <!-- Row 1 -->
-                    <tr class="hover:bg-primary/5 transition-colors group">
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-3">
-                          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                            <span class="material-symbols-outlined">meeting_room</span>
-                          </div>
-                          <div>
-                            <p class="font-bold text-slate-900 dark:text-white">Ambiente 402</p>
-                            <p class="text-xs text-slate-500 font-medium">Torre A - Piso 4</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Sede Central</span>
-                      </td>
-                      <td class="px-6 py-5 text-center">
-                        <div class="flex flex-col items-center">
-                          <span class="text-sm font-bold text-slate-900 dark:text-white">35</span>
-                          <span class="text-[10px] text-slate-500 uppercase tracking-tighter">Personas</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Aula Polivalente</span>
-                      </td>
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-2">
-                          <span class="w-2.5 h-2.5 bg-primary rounded-full animate-pulse"></span>
-                          <span class="text-sm font-bold text-primary">Disponible</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5 text-right">
-                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
-                          <span class="material-symbols-outlined">edit</span>
-                        </button>
-                        <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
-                          <span class="material-symbols-outlined">delete</span>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <!-- Row 2 -->
-                    <tr class="hover:bg-primary/5 transition-colors group">
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-3">
-                          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                            <span class="material-symbols-outlined">biotech</span>
-                          </div>
-                          <div>
-                            <p class="font-bold text-slate-900 dark:text-white">Laboratorio TIC 02</p>
-                            <p class="text-xs text-slate-500 font-medium">Bloque 2 - Piso 1</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Sede TIC</span>
-                      </td>
-                      <td class="px-6 py-5 text-center">
-                        <div class="flex flex-col items-center">
-                          <span class="text-sm font-bold text-slate-900 dark:text-white">25</span>
-                          <span class="text-[10px] text-slate-500 uppercase tracking-tighter">Personas</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold rounded-full">Laboratorio</span>
-                      </td>
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-2">
-                          <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
-                          <span class="text-sm font-bold text-amber-500">Ocupado (Clase)</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5 text-right">
-                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
-                          <span class="material-symbols-outlined">edit</span>
-                        </button>
-                        <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
-                          <span class="material-symbols-outlined">delete</span>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <!-- Row 3 -->
-                    <tr class="hover:bg-primary/5 transition-colors group">
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-3">
-                          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                            <span class="material-symbols-outlined">stadium</span>
-                          </div>
-                          <div>
-                            <p class="font-bold text-slate-900 dark:text-white">Auditorio Principal</p>
-                            <p class="text-xs text-slate-500 font-medium">Entrada Central</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Sede Central</span>
-                      </td>
-                      <td class="px-6 py-5 text-center">
-                        <div class="flex flex-col items-center">
-                          <span class="text-sm font-bold text-slate-900 dark:text-white">120</span>
-                          <span class="text-[10px] text-slate-500 uppercase tracking-tighter">Personas</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-full">Auditorio</span>
-                      </td>
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-2">
-                          <span class="w-2.5 h-2.5 bg-slate-400 rounded-full"></span>
-                          <span class="text-sm font-bold text-slate-500">Mantenimiento</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5 text-right">
-                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
-                          <span class="material-symbols-outlined">edit</span>
-                        </button>
-                        <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
-                          <span class="material-symbols-outlined">delete</span>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <!-- Row 4 -->
-                    <tr class="hover:bg-primary/5 transition-colors group border-b-0">
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-3">
-                          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                            <span class="material-symbols-outlined">meeting_room</span>
-                          </div>
-                          <div>
-                            <p class="font-bold text-slate-900 dark:text-white">Ambiente 105</p>
-                            <p class="text-xs text-slate-500 font-medium">Torre B - Piso 1</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Sede Central</span>
-                      </td>
-                      <td class="px-6 py-5 text-center">
-                        <div class="flex flex-col items-center">
-                          <span class="text-sm font-bold text-slate-900 dark:text-white">30</span>
-                          <span class="text-[10px] text-slate-500 uppercase tracking-tighter">Personas</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5">
-                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full">Aula Polivalente</span>
-                      </td>
-                      <td class="px-6 py-5">
-                        <div class="flex items-center gap-2">
-                          <span class="w-2.5 h-2.5 bg-primary rounded-full animate-pulse"></span>
-                          <span class="text-sm font-bold text-primary">Disponible</span>
-                        </div>
-                      </td>
-                      <td class="px-6 py-5 text-right">
-                        <button class="p-2 text-slate-400 hover:text-primary transition-colors">
-                          <span class="material-symbols-outlined">edit</span>
-                        </button>
-                        <button class="p-2 text-slate-400 hover:text-red-500 transition-colors">
-                          <span class="material-symbols-outlined">delete</span>
-                        </button>
-                      </td>
-                    </tr>
-
-                  </tbody>
-                </table>
+              <!-- Estado -->
+              <div class="filter-group">
+                <label for="filter-estado">Estado</label>
+                <div class="select-wrap">
+                  <select id="filter-estado" class="form-control">
+                    <option value="">Todos los Estados</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="ocupado">Ocupado</option>
+                    <option value="mantenimiento">Mantenimiento</option>
+                    <option value="inhabilitado">Inhabilitado</option>
+                  </select>
+                  <span class="material-symbols-outlined chevron">expand_more</span>
+                </div>
               </div>
 
-              <!-- Pagination -->
-              <div class="px-6 py-4 bg-slate-50 dark:bg-slate-700/50 flex items-center justify-between border-t border-slate-100 dark:border-slate-700">
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Mostrando 1-4 de 28 ambientes</p>
-                <div class="flex items-center gap-2">
-                  <button class="p-2 hover:bg-white dark:hover:bg-slate-600 rounded-lg text-slate-400 disabled:opacity-50" disabled>
-                    <span class="material-symbols-outlined">chevron_left</span>
-                  </button>
-                  <button class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-lg text-xs font-bold">1</button>
-                  <button class="w-8 h-8 flex items-center justify-center hover:bg-white dark:hover:bg-slate-600 text-slate-600 dark:text-slate-400 rounded-lg text-xs font-bold transition-colors">2</button>
-                  <button class="w-8 h-8 flex items-center justify-center hover:bg-white dark:hover:bg-slate-600 text-slate-600 dark:text-slate-400 rounded-lg text-xs font-bold transition-colors">3</button>
-                  <button class="p-2 hover:bg-white dark:hover:bg-slate-600 rounded-lg text-slate-400">
-                    <span class="material-symbols-outlined">chevron_right</span>
-                  </button>
-                </div>
+              <!-- Limpiar -->
+              <div class="filter-group" style="justify-content:flex-end">
+                <label style="visibility:hidden">Acción</label>
+                <button id="btn-limpiar" type="button" class="btn-secondary">
+                  <span class="material-symbols-outlined">filter_list_off</span>
+                  Limpiar Filtros
+                </button>
               </div>
             </div>
+          </form>
+        </div>
 
-            <!-- Stats Summary -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-primary/10 shadow-sm flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                  <span class="material-symbols-outlined text-2xl">door_front</span>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Ambientes</p>
-                  <p class="text-2xl font-black text-slate-900 dark:text-white leading-none mt-1">28</p>
-                </div>
-              </div>
-              <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-primary/10 shadow-sm flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600">
-                  <span class="material-symbols-outlined text-2xl">group</span>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Capacidad Total</p>
-                  <p class="text-2xl font-black text-slate-900 dark:text-white leading-none mt-1">840</p>
-                </div>
-              </div>
-              <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-primary/10 shadow-sm flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600">
-                  <span class="material-symbols-outlined text-2xl">event_available</span>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Disponibles Ahora</p>
-                  <p class="text-2xl font-black text-slate-900 dark:text-white leading-none mt-1">12</p>
-                </div>
-              </div>
-              <div class="bg-white dark:bg-slate-800 p-5 rounded-xl border border-primary/10 shadow-sm flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center text-rose-600">
-                  <span class="material-symbols-outlined text-2xl">build</span>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">En Mantenimiento</p>
-                  <p class="text-2xl font-black text-slate-900 dark:text-white leading-none mt-1">3</p>
-                </div>
-              </div>
-            </div>
+        <!-- TABLA -->
+        <div class="table-card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre / Número</th>
+                  <th>Sede</th>
+                  <th class="text-center">Capacidad</th>
+                  <th>Tipo</th>
+                  <th>Estado Actual</th>
+                  <th class="text-right">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="ambientes-tbody">
+                <!-- Renderizado por JS -->
+              </tbody>
+            </table>
+          </div>
 
+          <!-- Paginación -->
+          <div class="pagination-bar">
+            <p class="pagination-info" id="pagination-info">Cargando…</p>
+            <div class="pagination-btns" id="pagination-btns"></div>
           </div>
         </div>
 
-      </main>
+        <!-- STATS -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon-circle icon-green">
+              <span class="material-symbols-outlined">door_front</span>
+            </div>
+            <div>
+              <p class="stat-label">Total Ambientes</p>
+              <p class="stat-value" id="stat-total" data-count="28">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-circle icon-blue">
+              <span class="material-symbols-outlined">group</span>
+            </div>
+            <div>
+              <p class="stat-label">Capacidad Total</p>
+              <p class="stat-value" id="stat-capacidad" data-count="840">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-circle icon-emerald">
+              <span class="material-symbols-outlined">event_available</span>
+            </div>
+            <div>
+              <p class="stat-label">Disponibles Ahora</p>
+              <p class="stat-value" id="stat-disponibles" data-count="12">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-circle icon-rose">
+              <span class="material-symbols-outlined">build</span>
+            </div>
+            <div>
+              <p class="stat-label">En Mantenimiento</p>
+              <p class="stat-value" id="stat-mant" data-count="3">0</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /page-inner -->
+    </div><!-- /page-body -->
+  </main>
+</div><!-- /app-wrapper -->
+
+<!-- ══════════════ TOAST ══════════════ -->
+<div id="toast-container"></div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL: Crear / Editar Ambiente
+══════════════════════════════════════════════ -->
+<div id="modal-ambiente" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-ambiente-title">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-ambiente-title">Nuevo Ambiente</h3>
+      <button class="modal-close" data-modal-close="modal-ambiente" aria-label="Cerrar">
+        <span class="material-symbols-outlined">close</span>
+      </button>
     </div>
-  </body>
+
+    <form id="form-ambiente" novalidate>
+      <div class="form-body">
+
+        <!-- Nombre y Ubicación -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="amb-nombre">Nombre / Código *</label>
+            <input id="amb-nombre" class="form-control" type="text"
+                   placeholder="ej. Lab 204" required />
+            <span class="form-error">Ingresa el nombre del ambiente</span>
+          </div>
+          <div class="form-group">
+            <label for="amb-ubicacion">Ubicación *</label>
+            <input id="amb-ubicacion" class="form-control" type="text"
+                   placeholder="ej. Torre A – Piso 2" required />
+            <span class="form-error">Ingresa la ubicación</span>
+          </div>
+        </div>
+
+        <!-- Sede y Tipo -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="amb-sede">Sede *</label>
+            <select id="amb-sede" class="form-control" required>
+              <option value="">Seleccionar…</option>
+              <option>Sede Central</option>
+              <option>Sede TIC</option>
+              <option>Centro de Electricidad y Automatización</option>
+              <option>Centro de Diseño y Metrología</option>
+            </select>
+            <span class="form-error">Selecciona la sede</span>
+          </div>
+          <div class="form-group">
+            <label for="amb-tipo">Tipo *</label>
+            <select id="amb-tipo" class="form-control" required>
+              <option value="">Seleccionar…</option>
+              <option>Laboratorio</option>
+              <option>Aula Polivalente</option>
+              <option>Auditorio</option>
+              <option>Taller</option>
+            </select>
+            <span class="form-error">Selecciona el tipo</span>
+          </div>
+        </div>
+
+        <!-- Capacidad y Estado -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="amb-capacidad">Capacidad (personas) *</label>
+            <input id="amb-capacidad" class="form-control" type="number"
+                   min="1" max="500" placeholder="ej. 30" required />
+            <span class="form-error">Ingresa la capacidad</span>
+          </div>
+          <div class="form-group">
+            <label for="amb-estado">Estado *</label>
+            <select id="amb-estado" class="form-control" required>
+              <option value="">Seleccionar…</option>
+              <option value="disponible">Disponible</option>
+              <option value="ocupado">Ocupado (Clase)</option>
+              <option value="mantenimiento">En Mantenimiento</option>
+              <option value="inhabilitado">Inhabilitado</option>
+            </select>
+            <span class="form-error">Selecciona el estado</span>
+          </div>
+        </div>
+
+        <!-- Recursos disponibles -->
+        <div class="form-group">
+          <label for="amb-recursos">Recursos disponibles</label>
+          <input id="amb-recursos" class="form-control" type="text"
+                 placeholder="ej. Proyector, PCs, Pizarra digital" />
+          <span class="form-hint">Separa los recursos con comas</span>
+        </div>
+
+        <!-- Observaciones -->
+        <div class="form-group">
+          <label for="amb-obs">Observaciones</label>
+          <textarea id="amb-obs" class="form-control"
+                    placeholder="Notas adicionales sobre el ambiente…"></textarea>
+        </div>
+
+      </div><!-- /form-body -->
+
+      <div class="form-footer">
+        <button type="button" class="btn-secondary" data-modal-close="modal-ambiente">Cancelar</button>
+        <button type="submit" class="btn-primary">
+          <span class="material-symbols-outlined">save</span> Guardar ambiente
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MODAL: Confirmar eliminación
+══════════════════════════════════════════════ -->
+<div id="modal-confirmar" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+  <div class="confirm-dialog">
+    <div class="icon-wrap">
+      <span class="material-symbols-outlined">delete_forever</span>
+    </div>
+    <h3 id="confirm-title">Eliminar Ambiente</h3>
+    <p id="delete-msg">¿Estás seguro de que deseas eliminar este ambiente?</p>
+    <div class="confirm-btns">
+      <button class="btn-secondary" data-modal-close="modal-confirmar">Cancelar</button>
+      <button id="btn-confirmar-delete" class="btn-danger">
+        <span class="material-symbols-outlined">delete</span> Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript propio -->
+<script src="AmbientesJS.js"></script>
+</body>
 </html>

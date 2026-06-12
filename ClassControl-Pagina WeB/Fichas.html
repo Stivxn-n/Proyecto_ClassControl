@@ -1,360 +1,440 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Fichas — ClassControl</title>
 
-<html lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gestión de Fichas - ClassControl</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#38a800",
-                        "background-light": "#f6f8f5",
-                        "background-dark": "#16230f",
-                        "sena-dark": "#00304D",
-                    },
-                    fontFamily: {
-                        "display": ["Inter"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    </style>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="FichasCSS.css" />
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary":          "#38a800",
+            "background-light": "#f6f8f5",
+            "background-dark":  "#16230f",
+            "sena-dark":        "#00304D",
+          },
+          fontFamily: { display: ["Inter"] },
+          borderRadius: {
+            DEFAULT: "0.25rem", lg: "0.5rem",
+            xl: "0.75rem",      full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
 <div class="flex min-h-screen">
-<!-- Sidebar -->
-<aside class="w-64 bg-sena-dark text-white flex flex-col shrink-0">
-<div class="p-6 flex flex-col gap-1">
-<div class="flex items-center gap-3 mb-8">
-<div class="bg-white p-1 rounded-lg">
-<img alt="Logo SENA verde" data-alt="Logo oficial del SENA en color verde" src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"/>
+
+  <!-- ═══════════════════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════════════════ -->
+  <aside class="w-64 bg-sena-dark text-white flex flex-col shrink-0">
+    <div class="p-6 flex flex-col gap-1 flex-1">
+
+      <!-- Brand -->
+      <div class="flex items-center gap-3 mb-8">
+        <div class="bg-white p-1 rounded-lg">
+          <img src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"
+               alt="Logo SENA" class="h-8 w-auto" />
+        </div>
+        <div>
+          <h1 class="text-xl font-bold leading-none">ClassControl</h1>
+          <p class="text-xs text-primary font-medium">Gestión Educativa</p>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <nav class="flex flex-col gap-1">
+        <a href="Pagina Principal.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined">dashboard</span><span>Inicio</span>
+        </a>
+        <a href="Fichas.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg active-nav">
+          <span class="material-symbols-outlined">description</span><span>Fichas</span>
+        </a>
+        <a href="Instructores.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined">groups</span><span>Instructores</span>
+        </a>
+        <a href="Programas.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined">school</span><span>Programas</span>
+        </a>
+        <a href="Ambientes.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined">meeting_room</span><span>Ambientes</span>
+        </a>
+        <a href="Competencias.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined">target</span><span>Competencias</span>
+        </a>
+        <a href="Actividades.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined">assignment_turned_in</span><span>Actividades</span>
+        </a>
+        <a href="Programacion instructores.html"
+           class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined">calendar_month</span><span>Programación</span>
+        </a>
+
+        <div class="border-t border-white/10 mt-2 pt-2 flex flex-col gap-1">
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+            <span class="material-symbols-outlined">analytics</span><span>Reportes</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+            <span class="material-symbols-outlined">manage_accounts</span><span>Usuarios</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors">
+            <span class="material-symbols-outlined">person</span><span>Mi Perfil</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Logout -->
+    <div class="p-4 border-t border-white/10">
+      <button class="flex items-center justify-center gap-2 w-full py-2.5 bg-primary hover:bg-primary/90 rounded-lg font-bold transition-all shadow-lg">
+        <span class="material-symbols-outlined">logout</span>
+        Cerrar Sesión
+      </button>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN
+  ═══════════════════════════════════════════════ -->
+  <main class="flex-1 flex flex-col overflow-y-auto">
+
+    <!-- Header -->
+    <header class="h-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800
+                   flex items-center justify-between px-8 sticky top-0 z-10">
+      <h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100">Gestión de Fichas</h2>
+
+      <div class="flex items-center gap-4">
+        <!-- Dark mode -->
+        <button id="btn-dark-toggle"
+                class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                title="Modo oscuro">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+
+        <!-- Notification -->
+        <button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full relative">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+        </button>
+
+        <!-- User -->
+        <div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-700">
+          <div class="text-right">
+            <p class="text-sm font-bold leading-none">Carlos Rodríguez</p>
+            <p class="text-xs text-slate-500 mt-1">Coordinador Académico</p>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-primary/20">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ4LoGWb00BoiO00zOUxRYwg_qXO7NvwhUrMZjpin1LBJrWmBSE0ftr0UU3E2JybOAT1uE139t9mgWb1F2v87C1kAjKuhTJN7Er_tWYYSNzjjUP6e_asLxN4EkNdR0vZxA2RgXdsblODJ9iZK5e5FNqK7yiq0OYu74fIoRy6WUdWKHmofYrCgOwppzpAmfzghF9LlILX-18DFGc1irIBLAwjlEXJplwlFI7Xu7Okm06dD0-So3ke7IjPPW0uU7HzJfaJ3QvPL9EOs"
+                 alt="Avatar usuario" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <div class="p-8 space-y-6">
+
+      <!-- ── Filters & Search ── -->
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100
+                  dark:border-slate-800 flex flex-wrap gap-4 items-center justify-between">
+        <div class="flex flex-1 min-w-[300px] gap-4 flex-wrap">
+
+          <!-- Search -->
+          <div class="relative flex-1 min-w-[200px]">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+            <input id="search-input" type="text"
+                   placeholder="Buscar por código o programa..."
+                   class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200
+                          dark:border-slate-700 focus:border-primary focus:ring-2 focus:ring-primary/20
+                          bg-slate-50 dark:bg-slate-800 text-sm outline-none transition-all" />
+          </div>
+
+          <!-- Filters -->
+          <select id="filter-estado"
+                  class="rounded-lg border border-slate-200 dark:border-slate-700 text-sm
+                         focus:border-primary focus:ring-2 focus:ring-primary/20
+                         bg-slate-50 dark:bg-slate-800 px-3 py-2.5 outline-none">
+            <option value="">Estado: Todos</option>
+            <option value="Activa">Activa</option>
+            <option value="Finalizada">Finalizada</option>
+            <option value="En proceso">En proceso</option>
+          </select>
+
+          <select id="filter-modalidad"
+                  class="rounded-lg border border-slate-200 dark:border-slate-700 text-sm
+                         focus:border-primary focus:ring-2 focus:ring-primary/20
+                         bg-slate-50 dark:bg-slate-800 px-3 py-2.5 outline-none">
+            <option value="">Modalidad: Todas</option>
+            <option value="Presencial">Presencial</option>
+            <option value="Virtual">Virtual</option>
+            <option value="Distancia">Distancia</option>
+          </select>
+
+          <select id="filter-sede"
+                  class="rounded-lg border border-slate-200 dark:border-slate-700 text-sm
+                         focus:border-primary focus:ring-2 focus:ring-primary/20
+                         bg-slate-50 dark:bg-slate-800 px-3 py-2.5 outline-none">
+            <option value="">Sede: Todas</option>
+            <option value="Sede Norte">Sede Norte</option>
+            <option value="Sede Central">Sede Central</option>
+            <option value="Centro Industrial">Centro Industrial</option>
+          </select>
+        </div>
+
+        <!-- Nueva Ficha button -->
+        <button id="btn-new-ficha"
+                class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-bold
+                       flex items-center gap-2 transition-all shadow-lg shadow-primary/25 active:scale-95">
+          <span class="material-symbols-outlined">add_circle</span>
+          Nueva Ficha
+        </button>
+      </div>
+
+      <!-- ── Table ── -->
+      <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100
+                  dark:border-slate-800 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-800">
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Código</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Programa de Formación</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Fechas</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Modalidad</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Aprendices</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
+                <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="fichas-tbody" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100
+                    dark:border-slate-800 flex items-center justify-between">
+          <p class="text-sm text-slate-500">
+            Mostrando <span id="count-showing" class="font-bold text-slate-700 dark:text-slate-300">0</span>
+            de <span id="count-total" class="font-bold text-slate-700 dark:text-slate-300">0</span> fichas
+          </p>
+          <div id="pagination-btns" class="flex gap-1"></div>
+        </div>
+      </div>
+
+    </div><!-- /p-8 -->
+  </main>
+</div><!-- /flex -->
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODAL — NUEVA / EDITAR FICHA
+═══════════════════════════════════════════════════════════ -->
+<div id="modal-form-overlay" class="modal-overlay" role="dialog" aria-modal="true"
+     aria-labelledby="form-modal-title">
+  <div class="modal-box">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+      <h3 id="form-modal-title" class="text-lg font-bold text-sena-dark dark:text-white">
+        Nueva Ficha
+      </h3>
+      <button id="btn-close-form" aria-label="Cerrar"
+              class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+        <span class="material-symbols-outlined text-slate-500">close</span>
+      </button>
+    </div>
+
+    <!-- Form -->
+    <form id="ficha-form" novalidate>
+
+      <!-- Código + Nivel -->
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="f-codigo" class="form-label">Código <span class="text-red-500">*</span></label>
+          <input id="f-codigo" type="text" class="form-input"
+                 placeholder="Ej. 2560342" required />
+        </div>
+        <div>
+          <label for="f-nivel" class="form-label">Nivel</label>
+          <select id="f-nivel" class="form-select">
+            <option value="Técnico">Técnico</option>
+            <option value="Tecnólogo">Tecnólogo</option>
+            <option value="Auxiliar">Auxiliar</option>
+            <option value="Especialización">Especialización</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Programa -->
+      <div class="mb-4">
+        <label for="f-programa" class="form-label">Programa de Formación <span class="text-red-500">*</span></label>
+        <input id="f-programa" type="text" class="form-input"
+               placeholder="Nombre del programa" required />
+      </div>
+
+      <!-- Sede + Modalidad -->
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="f-sede" class="form-label">Sede</label>
+          <select id="f-sede" class="form-select">
+            <option value="Sede Central">Sede Central</option>
+            <option value="Sede Norte">Sede Norte</option>
+            <option value="Centro Industrial">Centro Industrial</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-modalidad" class="form-label">Modalidad</label>
+          <select id="f-modalidad" class="form-select">
+            <option value="Presencial">Presencial</option>
+            <option value="Virtual">Virtual</option>
+            <option value="Distancia">Distancia</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Fecha inicio + Fecha fin -->
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="f-inicio" class="form-label">Fecha de Inicio</label>
+          <input id="f-inicio" type="date" class="form-input" />
+        </div>
+        <div>
+          <label for="f-fin" class="form-label">Fecha de Fin</label>
+          <input id="f-fin" type="date" class="form-input" />
+        </div>
+      </div>
+
+      <!-- Aprendices + Estado -->
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="f-aprendices" class="form-label">N.º Aprendices</label>
+          <input id="f-aprendices" type="number" min="0" class="form-input"
+                 placeholder="0" />
+        </div>
+        <div>
+          <label for="f-estado" class="form-label">Estado</label>
+          <select id="f-estado" class="form-select">
+            <option value="Activa">Activa</option>
+            <option value="En proceso">En proceso</option>
+            <option value="Finalizada">Finalizada</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Notas -->
+      <div class="mb-6">
+        <label for="f-notas" class="form-label">Notas u observaciones</label>
+        <textarea id="f-notas" class="form-textarea"
+                  placeholder="Información adicional sobre la ficha..."></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <button type="submit"
+                class="flex-1 bg-primary hover:bg-primary/90 text-white py-2.5 rounded-lg
+                       font-bold text-sm transition-all shadow-sm">
+          Guardar ficha
+        </button>
+        <button type="button" id="btn-form-delete"
+                class="hidden bg-red-50 hover:bg-red-100 text-red-600 px-4 py-2.5 rounded-lg
+                       font-bold text-sm transition-all">
+          Eliminar
+        </button>
+        <button type="button" id="btn-cancel-form"
+                class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600
+                       text-slate-700 dark:text-slate-200 px-4 py-2.5 rounded-lg
+                       font-bold text-sm transition-all">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
-<div>
-<h1 class="text-xl font-bold leading-none">ClassControl</h1>
-<p class="text-xs text-primary font-medium">Gestión Educativa</p>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODAL — DETALLE (read-only)
+═══════════════════════════════════════════════════════════ -->
+<div id="modal-detail-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-bold text-sena-dark dark:text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">description</span>
+        Detalle de Ficha
+      </h3>
+      <button id="btn-close-detail" aria-label="Cerrar"
+              class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+        <span class="material-symbols-outlined text-slate-500">close</span>
+      </button>
+    </div>
+    <div id="detail-content"></div>
+  </div>
 </div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODAL — CONFIRMAR ELIMINACIÓN
+═══════════════════════════════════════════════════════════ -->
+<div id="modal-confirm-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="confirm-box dark:bg-slate-800">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-red-600">warning</span>
+      </div>
+      <div>
+        <h3 class="font-bold text-slate-800 dark:text-white">Eliminar ficha</h3>
+        <p class="text-xs text-slate-500 mt-0.5">Esta acción no se puede deshacer.</p>
+      </div>
+    </div>
+    <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
+      ¿Estás seguro de que deseas eliminar la ficha
+      <span id="confirm-ficha-name" class="font-semibold text-slate-800 dark:text-white"></span>?
+    </p>
+    <div class="flex gap-3">
+      <button id="btn-confirm-delete"
+              class="flex-1 bg-red-600 hover:bg-red-700 text-white py-2.5 rounded-lg
+                     font-bold text-sm transition-all">
+        Sí, eliminar
+      </button>
+      <button id="btn-cancel-delete"
+              class="flex-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600
+                     text-slate-700 dark:text-slate-200 py-2.5 rounded-lg
+                     font-bold text-sm transition-all">
+        Cancelar
+      </button>
+    </div>
+  </div>
 </div>
-<nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-medium" href="Pagina Principal.html">
-<span class="material-symbols-outlined">dashboard</span>
-<span>Inicio</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Fichas.html">
-<span class="material-symbols-outlined">description</span>
-<span>Fichas</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Instructores.html">
-<span class="material-symbols-outlined">groups</span>
-<span>Instructores</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-<span class="material-symbols-outlined">school</span>
-<span>Programas</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Ambientes.html">
-<span class="material-symbols-outlined">meeting_room</span>
-<span>Ambientes</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Competencias.html">
-<span class="material-symbols-outlined">target</span>
-<span>Competencias</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Actividades.html">
-<span class="material-symbols-outlined">assignment_turned_in</span>
-<span>Actividades</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programacion instructores.html">
-<span class="material-symbols-outlined">calendar_month</span>
-<span>Programación</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors border-t border-white/10 mt-2 pt-4" href="#">
-<span class="material-symbols-outlined">analytics</span>
-<span>Reportes</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-<span class="material-symbols-outlined">manage_accounts</span>
-<span>Usuarios</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-<span class="material-symbols-outlined">person</span>
-<span>Mi Perfil</span>
-</a>
-</nav>
-<div class="p-4 border-t border-white/10">
-<button class="flex items-center justify-center gap-2 w-full py-2.5 bg-primary hover:bg-primary/90 rounded-lg font-bold transition-all shadow-lg">
-<span class="material-symbols-outlined">logout</span>
-                    Cerrar Sesión
-                </button>
-</div>
-</aside>
-<!-- Main Content Area -->
-<main class="flex-1 flex flex-col overflow-y-auto">
-<!-- Header -->
-<header class="h-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 sticky top-0 z-10">
-<div class="flex items-center gap-4">
-<h2 class="text-2xl font-bold text-slate-800 dark:text-slate-100">Gestión de Fichas</h2>
-</div>
-<div class="flex items-center gap-6">
-<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full relative">
-<span class="material-symbols-outlined">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-</button>
-<div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-700">
-<div class="text-right">
-<p class="text-sm font-bold leading-none">Carlos Rodríguez</p>
-<p class="text-xs text-slate-500 mt-1">Coordinador Académico</p>
-</div>
-<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border-2 border-primary/20">
-<img alt="Avatar de usuario" data-alt="Profile picture of a smiling man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ4LoGWb00BoiO00zOUxRYwg_qXO7NvwhUrMZjpin1LBJrWmBSE0ftr0UU3E2JybOAT1uE139t9mgWb1F2v87C1kAjKuhTJN7Er_tWYYSNzjjUP6e_asLxN4EkNdR0vZxA2RgXdsblODJ9iZK5e5FNqK7yiq0OYu74fIoRy6WUdWKHmofYrCgOwppzpAmfzghF9LlILX-18DFGc1irIBLAwjlEXJplwlFI7Xu7Okm06dD0-So3ke7IjPPW0uU7HzJfaJ3QvPL9EOs"/>
-</div>
-</div>
-</div>
-</header>
-<!-- Page Content -->
-<div class="p-8 space-y-6">
-<!-- Filters and Search -->
-<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-wrap gap-4 items-center justify-between">
-<div class="flex flex-1 min-w-[300px] gap-4">
-<div class="relative flex-1">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border-slate-200 focus:border-primary focus:ring-primary/20 bg-slate-50 dark:bg-slate-800 dark:border-slate-700 text-sm" placeholder="Buscar por código o programa..." type="text"/>
-</div>
-<div class="flex gap-2">
-<select class="rounded-lg border-slate-200 text-sm focus:border-primary focus:ring-primary/20 bg-slate-50 dark:bg-slate-800 dark:border-slate-700">
-<option>Estado: Todos</option>
-<option>Activa</option>
-<option>Finalizada</option>
-<option>En proceso</option>
-</select>
-<select class="rounded-lg border-slate-200 text-sm focus:border-primary focus:ring-primary/20 bg-slate-50 dark:bg-slate-800 dark:border-slate-700">
-<option>Modalidad: Todas</option>
-<option>Presencial</option>
-<option>Virtual</option>
-<option>Distancia</option>
-</select>
-<select class="rounded-lg border-slate-200 text-sm focus:border-primary focus:ring-primary/20 bg-slate-50 dark:bg-slate-800 dark:border-slate-700">
-<option>Sede: Todas</option>
-<option>Sede Norte</option>
-<option>Sede Central</option>
-<option>Centro Industrial</option>
-</select>
-</div>
-</div>
-<a href="Nueva ficha.html"
-   class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/25 active:scale-95"
->
-  <span class="material-symbols-outlined">add_circle</span>
-  Nueva Ficha
-</a>
-</div>
-<!-- Table Container -->
-<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-800">
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Código</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Programa de Formación</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Fechas</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Modalidad</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Aprendices</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
-<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-mono text-sm text-primary font-bold">2560342</td>
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="font-semibold text-slate-800 dark:text-slate-100">Análisis y Desarrollo de Software</span>
-<span class="text-xs text-slate-500">Tecnólogo • Sede Central</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm text-center">
-<div class="flex flex-col">
-<span class="text-slate-700 dark:text-slate-300">02/01/2024</span>
-<span class="text-xs text-slate-400">a 15/12/2025</span>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-medium">
-<span class="material-symbols-outlined text-sm">home</span>
-                                            Presencial
-                                        </span>
-</td>
-<td class="px-6 py-4 text-center">
-<span class="font-bold text-slate-700 dark:text-slate-300">28</span>
-</td>
-<td class="px-6 py-4">
-<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">Activa</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-1.5 text-slate-400 hover:text-primary transition-colors" title="Ver detalles">
-<span class="material-symbols-outlined text-xl">visibility</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-amber-500 transition-colors" title="Editar">
-<span class="material-symbols-outlined text-xl">edit</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors" title="Eliminar">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-mono text-sm text-primary font-bold">2451980</td>
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="font-semibold text-slate-800 dark:text-slate-100">Gestión Contable y Financiera</span>
-<span class="text-xs text-slate-500">Técnico • Sede Norte</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm text-center">
-<div class="flex flex-col">
-<span class="text-slate-700 dark:text-slate-300">15/06/2023</span>
-<span class="text-xs text-slate-400">a 14/06/2024</span>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 text-xs font-medium">
-<span class="material-symbols-outlined text-sm">laptop</span>
-                                            Virtual
-                                        </span>
-</td>
-<td class="px-6 py-4 text-center">
-<span class="font-bold text-slate-700 dark:text-slate-300">45</span>
-</td>
-<td class="px-6 py-4">
-<span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-bold border border-slate-200 dark:border-slate-700">En proceso</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-1.5 text-slate-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-xl">visibility</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-amber-500 transition-colors">
-<span class="material-symbols-outlined text-xl">edit</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-mono text-sm text-primary font-bold">2304112</td>
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="font-semibold text-slate-800 dark:text-slate-100">Mantenimiento de Motores Diesel</span>
-<span class="text-xs text-slate-500">Técnico • Centro Industrial</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm text-center">
-<div class="flex flex-col">
-<span class="text-slate-700 dark:text-slate-300">20/02/2022</span>
-<span class="text-xs text-slate-400">a 19/02/2023</span>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-medium">
-<span class="material-symbols-outlined text-sm">home</span>
-                                            Presencial
-                                        </span>
-</td>
-<td class="px-6 py-4 text-center">
-<span class="font-bold text-slate-700 dark:text-slate-300">22</span>
-</td>
-<td class="px-6 py-4">
-<span class="px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold border border-red-100 dark:border-red-900/40">Finalizada</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-1.5 text-slate-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-xl">visibility</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-amber-500 transition-colors">
-<span class="material-symbols-outlined text-xl">edit</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
-<td class="px-6 py-4 font-mono text-sm text-primary font-bold">2670221</td>
-<td class="px-6 py-4">
-<div class="flex flex-col">
-<span class="font-semibold text-slate-800 dark:text-slate-100">Producción Multimedia</span>
-<span class="text-xs text-slate-500">Tecnólogo • Sede Central</span>
-</div>
-</td>
-<td class="px-6 py-4 text-sm text-center">
-<div class="flex flex-col">
-<span class="text-slate-700 dark:text-slate-300">10/05/2024</span>
-<span class="text-xs text-slate-400">a 09/05/2026</span>
-</div>
-</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 text-xs font-medium">
-<span class="material-symbols-outlined text-sm">directions_walk</span>
-                                            Distancia
-                                        </span>
-</td>
-<td class="px-6 py-4 text-center">
-<span class="font-bold text-slate-700 dark:text-slate-300">32</span>
-</td>
-<td class="px-6 py-4">
-<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">Activa</span>
-</td>
-<td class="px-6 py-4 text-right">
-<div class="flex justify-end gap-2">
-<button class="p-1.5 text-slate-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined text-xl">visibility</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-amber-500 transition-colors">
-<span class="material-symbols-outlined text-xl">edit</span>
-</button>
-<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Pagination -->
-<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-<p class="text-sm text-slate-500">Mostrando <span class="font-bold text-slate-700 dark:text-slate-300">4</span> de <span class="font-bold text-slate-700 dark:text-slate-300">12</span> fichas</p>
-<div class="flex gap-1">
-<button class="px-3 py-1.5 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-400 hover:text-primary transition-all disabled:opacity-50" disabled="">
-<span class="material-symbols-outlined text-sm leading-none">chevron_left</span>
-</button>
-<button class="px-3 py-1.5 rounded bg-primary text-white font-bold text-sm">1</button>
-<button class="px-3 py-1.5 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-sm">2</button>
-<button class="px-3 py-1.5 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-sm">3</button>
-<button class="px-3 py-1.5 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-400 hover:text-primary transition-all">
-<span class="material-symbols-outlined text-sm leading-none">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-</body></html>
+
+
+<!-- Toast -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- App script -->
+<script src="FichasJS.js"></script>
+</body>
+</html>

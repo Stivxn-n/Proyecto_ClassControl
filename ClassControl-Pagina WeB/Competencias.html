@@ -1,357 +1,371 @@
 <!DOCTYPE html>
-
-<html lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gestión de Fichas - ClassControl</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#38a800",
-                        "background-light": "#f6f8f5",
-                        "background-dark": "#16230f",
-                        "sena-dark": "#00304D",
-                    },
-                    fontFamily: {
-                        "display": ["Inter"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    </style>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Gestión de Competencias - ClassControl</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary":          "#38a800",
+            "primary-dark":     "#2d8600",
+            "background-light": "#f6f8f5",
+            "background-dark":  "#16230f",
+            "sena-dark":        "#00304D",
+            "accent-blue":      "#1e40af",
+          },
+          fontFamily: { "display": ["Inter"] },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="CompetenciasCSS.css"/>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+
 <div class="flex min-h-screen">
-<!-- Sidebar -->
-<aside class="w-64 bg-sena-dark text-white flex flex-col shrink-0">
-<div class="p-6 flex flex-col gap-1">
-<div class="flex items-center gap-3 mb-8">
-<div class="bg-white p-1 rounded-lg">
-<img alt="Logo SENA verde" data-alt="Logo oficial del SENA en color verde" src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"/>
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="w-64 bg-sena-dark text-white flex flex-col shrink-0">
+    <div class="p-6 flex flex-col gap-1 flex-1">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="bg-white p-1 rounded-lg">
+          <img alt="Logo SENA" src="https://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png"/>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold leading-none">ClassControl</h1>
+          <p class="text-xs text-primary font-medium">Gestión Educativa</p>
+        </div>
+      </div>
+
+      <nav class="flex flex-col gap-1">
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Pagina Principal.html">
+          <span class="material-symbols-outlined">dashboard</span><span>Inicio</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Fichas.html">
+          <span class="material-symbols-outlined">description</span><span>Fichas</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Instructores.html">
+          <span class="material-symbols-outlined">groups</span><span>Instructores</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programas.html">
+          <span class="material-symbols-outlined">school</span><span>Programas</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Ambientes.html">
+          <span class="material-symbols-outlined">meeting_room</span><span>Ambientes</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-medium" href="Competencias.html">
+          <span class="material-symbols-outlined">target</span><span>Competencias</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Actividades.html">
+          <span class="material-symbols-outlined">assignment_turned_in</span><span>Actividades</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programacion instructores.html">
+          <span class="material-symbols-outlined">calendar_month</span><span>Programación</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors border-t border-white/10 mt-2 pt-4" href="#">
+          <span class="material-symbols-outlined">analytics</span><span>Reportes</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+          <span class="material-symbols-outlined">manage_accounts</span><span>Usuarios</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
+          <span class="material-symbols-outlined">person</span><span>Mi Perfil</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- User card -->
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/50 m-4 rounded-xl">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
+          <img alt="Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgXgaPlhPrUBP9cskvFBNkD32qSJQx5nBaSDlyFex11HqKfiCV_Sp9uHNhfygInKeUC0Y0gqQ-yF0DE1735pKvCF5r7z10OcRN3rgC79Ech7JyAoAK6cSntl4GUQA4jVH3pHpSz2Ao3BM4nGroSyfE5zqKrMAecUHPfJ8WiiNsKlV9VJJCFz4BJ15v1FX64mRBZBCWuD9HcelGJ_wWC7SM1SiFpdS0w1U-6lH1j1SfaW3dmIN7NwAZcFECBnYw1GhQk-pH9GlIOdE"/>
+        </div>
+        <div class="overflow-hidden">
+          <p class="text-xs font-bold truncate text-white">Admin SENA</p>
+          <p class="text-[10px] text-slate-400 truncate">Coordinador</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <main class="ml-10 flex-1 p-8">
+
+    <!-- Header -->
+    <header class="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-3xl font-extrabold text-accent-blue dark:text-white tracking-tight">
+          Gestión de Competencias
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-1">
+          Administración de competencias académicas y técnicas para el registro curricular.
+        </p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="btn-descargar"
+          class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2.5 rounded-lg font-semibold flex items-center gap-2 hover:bg-slate-50 transition-colors shadow-sm text-sm">
+          <span class="material-symbols-outlined text-sm">file_download</span>
+          Exportar
+        </button>
+        <button id="btn-nueva-competencia"
+          class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/25 active:scale-95">
+          <span class="material-symbols-outlined">add_circle</span>
+          Nueva Competencia
+        </button>
+      </div>
+    </header>
+
+    <!-- Métricas -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" id="metricas"></div>
+
+    <!-- ===== Filtros (FORM) ===== -->
+    <section class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm mb-6">
+      <form id="form-filtros" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+
+          <!-- Búsqueda -->
+          <div class="lg:col-span-2 relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+            <input id="filtro-busqueda" name="busqueda" type="text"
+              placeholder="Buscar por código o descripción..."
+              class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm"/>
+          </div>
+
+          <!-- Programa -->
+          <div class="relative">
+            <select id="filtro-programa" name="programa"
+              class="w-full pl-3 pr-10 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 appearance-none focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm">
+              <option value="">Todos los Programas</option>
+              <option value="ADSO">ADSO</option>
+              <option value="Multimedia">Multimedia</option>
+              <option value="Gestión">Gestión</option>
+              <option value="Transversal">Transversal</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+          </div>
+
+          <!-- Estado -->
+          <div class="relative">
+            <select id="filtro-estado" name="estado"
+              class="w-full pl-3 pr-10 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 appearance-none focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-sm">
+              <option value="">Estado</option>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
+          </div>
+
+          <!-- Botones -->
+          <div class="flex gap-2">
+            <button type="submit"
+              class="flex-1 bg-sena-dark hover:bg-sena-dark/90 text-white font-bold py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all text-sm">
+              <span class="material-symbols-outlined text-sm">filter_list</span>
+              Filtrar
+            </button>
+            <button type="reset" id="btn-limpiar"
+              class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 p-2.5 rounded-lg transition-colors" title="Limpiar filtros">
+              <span class="material-symbols-outlined text-slate-600 dark:text-slate-400">filter_alt_off</span>
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== Tabla ===== -->
+    <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden mb-8">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Código</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Descripción de la Competencia</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Programa</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Estado</th>
+              <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-competencias" class="divide-y divide-slate-100 dark:divide-slate-800"></tbody>
+        </table>
+      </div>
+
+      <!-- Paginación -->
+      <footer class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <span id="contador-competencias" class="text-xs text-slate-500 dark:text-slate-400"></span>
+        <div id="paginacion" class="flex items-center gap-2"></div>
+      </footer>
+    </div>
+
+    <!-- ===== Bento informativo ===== -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card carga -->
+      <div class="col-span-1 bg-primary/8 border border-primary/15 p-6 rounded-2xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1">auto_stories</span>
+          <h4 class="font-bold text-slate-800 dark:text-white">Resumen de Carga</h4>
+        </div>
+        <p id="resumen-carga" class="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed"></p>
+      </div>
+
+      <!-- Card exportar -->
+      <div class="col-span-2 bg-sena-dark text-white p-6 rounded-2xl flex items-center justify-between shadow-xl">
+        <div>
+          <h4 class="font-bold text-lg mb-1">Exportar Listado Académico</h4>
+          <p class="text-slate-300 text-sm">Descarga la sábana de competencias en formato CSV.</p>
+        </div>
+        <div class="flex gap-3">
+          <button id="btn-generar-reporte"
+            class="bg-primary hover:bg-primary-dark px-5 py-2 rounded-xl font-bold text-sm transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">download</span>
+            Generar Reporte
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
 </div>
-<div>
-<h1 class="text-xl font-bold leading-none">ClassControl</h1>
-<p class="text-xs text-primary font-medium">Gestión Educativa</p>
+
+<!-- ===== Modal Nueva / Editar Competencia ===== -->
+<div id="modal-competencia" class="modal-overlay hidden">
+  <div class="modal-container bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-lg p-8">
+    <div class="flex items-center justify-between mb-6">
+      <h3 id="modal-titulo" class="text-xl font-bold text-slate-800 dark:text-white">Nueva Competencia</h3>
+      <button id="btn-cerrar-modal" class="text-slate-400 hover:text-slate-600 transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <form id="form-competencia" novalidate>
+      <input type="hidden" id="comp-id" name="id"/>
+      <div class="grid grid-cols-1 gap-5">
+
+        <!-- Código -->
+        <div>
+          <label class="form-label" for="comp-codigo">Código <span class="text-red-500">*</span></label>
+          <input id="comp-codigo" name="codigo" type="text" required
+            class="input-field w-full" placeholder="Ej. 220501096"/>
+          <p class="error-msg hidden text-xs text-red-500 mt-1">Este campo es obligatorio.</p>
+        </div>
+
+        <!-- Descripción -->
+        <div>
+          <label class="form-label" for="comp-descripcion">Descripción <span class="text-red-500">*</span></label>
+          <textarea id="comp-descripcion" name="descripcion" rows="3" required
+            class="input-field w-full resize-none"
+            placeholder="Describe la competencia de forma clara y precisa..."></textarea>
+          <p class="error-msg hidden text-xs text-red-500 mt-1">Este campo es obligatorio.</p>
+        </div>
+
+        <!-- Programa + Estado -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="form-label" for="comp-programa">Programa <span class="text-red-500">*</span></label>
+            <select id="comp-programa" name="programa" required class="input-field w-full">
+              <option value="">Seleccionar...</option>
+              <option value="ADSO">ADSO</option>
+              <option value="Multimedia">Multimedia</option>
+              <option value="Gestión">Gestión</option>
+              <option value="Transversal">Transversal</option>
+            </select>
+            <p class="error-msg hidden text-xs text-red-500 mt-1">Selecciona un programa.</p>
+          </div>
+          <div>
+            <label class="form-label" for="comp-estado">Estado <span class="text-red-500">*</span></label>
+            <select id="comp-estado" name="estado" required class="input-field w-full">
+              <option value="">Seleccionar...</option>
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+            <p class="error-msg hidden text-xs text-red-500 mt-1">Selecciona un estado.</p>
+          </div>
+        </div>
+
+        <!-- Horas -->
+        <div>
+          <label class="form-label" for="comp-horas">Horas de Formación</label>
+          <input id="comp-horas" name="horas" type="number" min="1"
+            class="input-field w-full" placeholder="Ej. 120"/>
+        </div>
+
+      </div>
+
+      <div class="flex justify-end gap-3 mt-8">
+        <button type="button" id="btn-cancelar"
+          class="px-5 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 font-medium hover:bg-slate-50 transition-colors text-sm">
+          Cancelar
+        </button>
+        <button type="submit"
+          class="px-6 py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-lg shadow-primary/25 active:scale-95 text-sm flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">save</span>
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
+
+<!-- ===== Modal Ver Detalle ===== -->
+<div id="modal-detalle" class="modal-overlay hidden">
+  <div class="modal-container bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-md p-8">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-xl font-bold text-slate-800 dark:text-white">Detalle de Competencia</h3>
+      <button id="btn-cerrar-detalle" class="text-slate-400 hover:text-slate-600 transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div id="detalle-contenido" class="space-y-4"></div>
+    <div class="flex justify-end mt-6">
+      <button id="btn-cerrar-detalle2"
+        class="px-5 py-2.5 rounded-lg border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 transition-colors text-sm">
+        Cerrar
+      </button>
+    </div>
+  </div>
 </div>
-        <nav class="flex flex-col gap-1">
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white font-medium" href="Pagina Principal.html">
-            <span class="material-symbols-outlined">dashboard</span>
-            <span>Inicio</span>
-          </a>   
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Fichas.html">
-            <span class="material-symbols-outlined">description</span>
-            <span>Fichas</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Instructores.html">
-            <span class="material-symbols-outlined">groups</span>
-            <span>Instructores</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-            <span class="material-symbols-outlined">school</span>
-            <span>Programas</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Ambientes.html">
-            <span class="material-symbols-outlined">meeting_room</span>
-            <span>Ambientes</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Competencias.html">
-            <span class="material-symbols-outlined">target</span>
-            <span>Competencias</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Actividades.html">
-            <span class="material-symbols-outlined">assignment_turned_in</span>
-            <span>Actividades</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="Programacion instructores.html">
-            <span class="material-symbols-outlined">calendar_month</span>
-            <span>Programación</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors border-t border-white/10 mt-2 pt-4" href="#">
-            <span class="material-symbols-outlined">analytics</span>
-            <span>Reportes</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-            <span class="material-symbols-outlined">manage_accounts</span>
-            <span>Usuarios</span>
-          </a>
-          <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors" href="#">
-            <span class="material-symbols-outlined">person</span>
-            <span>Mi Perfil</span>
-          </a>
-        </nav>
+
+<!-- ===== Modal Confirmar Eliminar ===== -->
+<div id="modal-eliminar" class="modal-overlay hidden">
+  <div class="modal-container bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-sm p-8 text-center">
+    <div class="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+      <span class="material-symbols-outlined text-red-500 text-3xl">delete_forever</span>
+    </div>
+    <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">¿Eliminar competencia?</h3>
+    <p class="text-sm text-slate-500 mb-6">Esta acción no se puede deshacer.</p>
+    <div class="flex justify-center gap-3">
+      <button id="btn-cancelar-eliminar"
+        class="px-5 py-2.5 rounded-lg border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 transition-colors text-sm">
+        Cancelar
+      </button>
+      <button id="btn-confirmar-eliminar"
+        class="px-5 py-2.5 rounded-lg bg-red-500 hover:bg-red-600 text-white font-bold transition-colors text-sm flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">delete</span>
+        Eliminar
+      </button>
+    </div>
+  </div>
 </div>
-<!-- Footer Navigation -->
-<div class="px-4 py-6 border-t border-slate-200 space-y-1">
-<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-slate-100 transition-all rounded-lg" href="#">
-<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
-<span class="font-medium text-[14px]">Configuración</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/50 transition-all rounded-lg" href="#">
-<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
-<span class="font-medium text-[14px]">Cerrar Sesión</span>
-</a>
+
+<!-- ===== Toast ===== -->
+<div id="toast" class="hidden fixed bottom-6 right-6 bg-slate-800 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 text-sm font-medium z-50 toast-anim">
+  <span id="toast-icon" class="material-symbols-outlined text-primary">check_circle</span>
+  <span id="toast-msg">Operación exitosa</span>
 </div>
-</aside>
-<!-- Main Content Canvas -->
-<main class="ml-10 min-h-screen">
-<!-- Top App Bar -->
-<header class="bg-slate-50/80 backdrop-blur-md sticky top-0 z-40 flex justify-between items-center px-10 py-4 w-full border-b border-slate-200">
-<div class="flex items-center gap-6">
-<div class="relative group">
-<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-slate-400" data-icon="search">search</span>
-</span>
-<input class="block w-64 pl-10 pr-3 py-2 border-0 bg-white ring-1 ring-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:outline-none transition-all" placeholder="Buscar..." type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors relative">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-slate-50"></span>
+
+<!-- FAB móvil -->
+<button id="btn-fab"
+  class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center z-50 active:scale-95 transition-transform">
+  <span class="material-symbols-outlined">add</span>
 </button>
-<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
-<span class="material-symbols-outlined" data-icon="help">help</span>
-</button>
-<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
-<div class="flex items-center gap-3 cursor-pointer group">
-<div class="text-right">
-<p class="text-sm font-bold text-slate-900 leading-none">Admin SENA</p>
-<p class="text-[11px] text-slate-500 font-medium">Coordinador</p>
-</div>
-<img alt="User Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="Professional profile headshot for system administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgXgaPlhPrUBP9cskvFBNkD32qSJQx5nBaSDlyFex11HqKfiCV_Sp9uHNhfygInKeUC0Y0gqQ-yF0DE1735pKvCF5r7z10OcRN3rgC79Ech7JyAoAK6cSntl4GUQA4jVH3pHpSz2Ao3BM4nGroSyfE5zqKrMAecUHPfJ8WiiNsKlV9VJJCFz4BJ15v1FX64mRBZBCWuD9HcelGJ_wWC7SM1SiFpdS0w1U-6lH1j1SfaW3dmIN7NwAZcFECBnYw1GhQk-pH9GlIOdE"/>
-</div>
-</div>
-</header>
-<!-- Page Canvas -->
-<div class="p-10">
-<!-- Page Header -->
-<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
-<div>
-<h2 class="text-3xl font-extrabold text-secondary tracking-tight">Gestión de Competencias</h2>
-<p class="text-on-surface-variant font-medium mt-1">Administración de competencias académicas y técnicas para el registro curricular.</p>
-</div>
-<a href="Nueva competencia.html"
-   class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/25 active:scale-95"
->
-  <span class="material-symbols-outlined">add_circle</span>
-  Nueva Competencia
-</a>
-</div>
-<!-- Toolbar & Filters Card -->
-<div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-6">
-<div class="flex flex-col md:flex-row items-center gap-4">
-<div class="flex-1 w-full relative">
-<span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-slate-400" data-icon="search">search</span>
-</span>
-<input class="block w-full pl-12 pr-4 py-3 border-0 bg-slate-50 ring-1 ring-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:outline-none transition-all placeholder:text-slate-400" placeholder="Buscador de competencias por código o descripción..." type="text"/>
-</div>
-<div class="w-full md:w-64">
-<div class="relative">
-<select class="block w-full pl-4 pr-10 py-3 border-0 bg-slate-50 ring-1 ring-slate-100 rounded-xl text-sm focus:ring-2 focus:ring-primary focus:outline-none appearance-none cursor-pointer">
-<option value="">Filtrar por Programa</option>
-<option value="ADSO">ADSO</option>
-<option value="Multimedia">Multimedia</option>
-<option value="Gestion">Gestión Administrativa</option>
-</select>
-<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-<span class="material-symbols-outlined text-slate-400" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
-</span>
-</div>
-</div>
-<button class="p-3 bg-slate-50 text-slate-600 rounded-xl hover:bg-slate-100 border border-slate-100 transition-colors">
-<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
-</button>
-</div>
-</div>
-<!-- Data Table Card -->
-<div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-<div class="overflow-x-auto">
-<table class="w-full text-left">
-<thead>
-<tr class="bg-slate-50 border-b border-slate-100">
-<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Código</th>
-<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Descripción de la Competencia</th>
-<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Programa Asociado</th>
-<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Estado</th>
-<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-widest text-center">Acciones</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-slate-50">
-<!-- Row 1 -->
-<tr class="hover:bg-slate-50/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="text-sm font-bold text-secondary">220501096</span>
-</td>
-<td class="px-6 py-4">
-<p class="text-sm text-slate-700 font-medium leading-relaxed max-w-md">Gestionar la información de acuerdo con los requerimientos del cliente y políticas de la organización.</p>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase">ADSO</span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="flex items-center gap-1.5 text-primary text-xs font-bold">
-<span class="w-2 h-2 rounded-full bg-primary"></span>
-                                        Activo
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-center">
-<div class="flex items-center justify-center gap-2">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary-container rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error-container rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="hover:bg-slate-50/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="text-sm font-bold text-secondary">240201501</span>
-</td>
-<td class="px-6 py-4">
-<p class="text-sm text-slate-700 font-medium leading-relaxed max-w-md">Interactuar en contextos sociales de acuerdo con principios éticos y de cultura de paz.</p>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="px-2.5 py-1 rounded-md bg-tertiary-container text-on-tertiary-container text-[11px] font-bold uppercase">Transversal</span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="flex items-center gap-1.5 text-primary text-xs font-bold">
-<span class="w-2 h-2 rounded-full bg-primary"></span>
-                                        Activo
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-center">
-<div class="flex items-center justify-center gap-2">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary-container rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error-container rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="hover:bg-slate-50/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="text-sm font-bold text-secondary">220501103</span>
-</td>
-<td class="px-6 py-4">
-<p class="text-sm text-slate-700 font-medium leading-relaxed max-w-md">Diseñar la solución de software de acuerdo con procedimientos y requisitos técnicos.</p>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container text-[11px] font-bold uppercase">ADSO</span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="flex items-center gap-1.5 text-slate-400 text-xs font-bold">
-<span class="w-2 h-2 rounded-full bg-slate-300"></span>
-                                        Inactivo
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-center">
-<div class="flex items-center justify-center gap-2">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary-container rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error-container rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 4 -->
-<tr class="hover:bg-slate-50/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="text-sm font-bold text-secondary">210601026</span>
-</td>
-<td class="px-6 py-4">
-<p class="text-sm text-slate-700 font-medium leading-relaxed max-w-md">Procesar datos de acuerdo con procedimiento técnico y metodología estadística.</p>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="px-2.5 py-1 rounded-md bg-orange-100 text-orange-700 text-[11px] font-bold uppercase">Gestión</span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="flex items-center gap-1.5 text-primary text-xs font-bold">
-<span class="w-2 h-2 rounded-full bg-primary"></span>
-                                        Activo
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-center">
-<div class="flex items-center justify-center gap-2">
-<button class="p-2 text-slate-400 hover:text-primary hover:bg-primary-container rounded-lg transition-all" title="Editar">
-<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
-</button>
-<button class="p-2 text-slate-400 hover:text-error hover:bg-error-container rounded-lg transition-all" title="Eliminar">
-<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
-</button>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Pagination -->
-<div class="bg-slate-50 px-6 py-4 flex items-center justify-between border-t border-slate-100">
-<div class="text-sm text-slate-500 font-medium">
-                        Mostrando <span class="font-bold text-secondary">1-10</span> de <span class="font-bold text-secondary">48</span> competencias
-                    </div>
-<div class="flex items-center gap-2">
-<button class="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:bg-white hover:text-secondary transition-all">
-<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
-</button>
-<button class="w-9 h-9 flex items-center justify-center rounded-lg bg-primary text-white font-bold text-sm shadow-md shadow-primary/20">1</button>
-<button class="w-9 h-9 flex items-center justify-center rounded-lg border border-transparent text-slate-500 hover:border-slate-200 hover:bg-white font-bold text-sm transition-all">2</button>
-<button class="w-9 h-9 flex items-center justify-center rounded-lg border border-transparent text-slate-500 hover:border-slate-200 hover:bg-white font-bold text-sm transition-all">3</button>
-<span class="text-slate-400 px-1">...</span>
-<button class="w-9 h-9 flex items-center justify-center rounded-lg border border-transparent text-slate-500 hover:border-slate-200 hover:bg-white font-bold text-sm transition-all">5</button>
-<button class="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:bg-white hover:text-secondary transition-all">
-<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Contextual Insight (Bento-style element) -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-<div class="col-span-1 bg-primary-container p-6 rounded-2xl border border-primary/10">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-primary" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
-<h4 class="font-bold text-on-primary-fixed-variant">Resumen de Carga</h4>
-</div>
-<p class="text-sm text-on-primary-fixed-variant/80 font-medium leading-relaxed">Hay 12 nuevas competencias pendientes de asignar a programas técnicos para el próximo trimestre.</p>
-</div>
-<div class="col-span-2 bg-secondary text-white p-6 rounded-2xl flex items-center justify-between shadow-xl shadow-secondary/10">
-<div>
-<h4 class="font-bold text-lg mb-1">Exportar Listado Académico</h4>
-<p class="text-slate-300 text-sm">Descarga la sábana de competencias en formato PDF o Excel.</p>
-</div>
-<div class="flex gap-3">
-<button class="bg-white/10 hover:bg-white/20 p-3 rounded-xl transition-colors">
-<span class="material-symbols-outlined" data-icon="download">download</span>
-</button>
-<button class="bg-primary hover:bg-primary-fixed-variant px-5 py-2 rounded-xl font-bold text-sm transition-all">Generar Reporte</button>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Floating Action Button (Only on mobile if sidebar is hidden - for demonstration) -->
-<button class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center z-50">
-<span class="material-symbols-outlined" data-icon="add">add</span>
-</button>
-</body></html>
+
+<script src="CompetenciasJS.js"></script>
+</body>
+</html>

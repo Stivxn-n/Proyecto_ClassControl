@@ -52,12 +52,17 @@ CREATE TABLE IF NOT EXISTS `ClassControl`.`Usuarios` (
   `nombres` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `identificacion` VARCHAR(45) NOT NULL,
+  `fecha_Nacimiento` DATE NOT NULL,
   `correo` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(45) NOT NULL,
   `direccion` VARCHAR(45) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
+  `nivel_Educativo` VARCHAR(45) NOT NULL,
+  `profesion` VARCHAR(45) NOT NULL,
   `clave` VARCHAR(255) NOT NULL,
+  `fecha_Creacion` DATE NOT NULL,
   `activo` TINYINT(1) NOT NULL,
+  `fecha_ExpiracionContraseña` DATE NOT NULL,
   `Roles_id_roles` INT NOT NULL,
   `Tipo_Documento_id_tipo_Documento` INT NOT NULL,
   `Tipo_vinculacion_id_tipo_vinculacion` INT NOT NULL,
@@ -134,12 +139,29 @@ CREATE TABLE IF NOT EXISTS `ClassControl`.`Sede` (
 
 
 -- -----------------------------------------------------
+-- Table `ClassControl`.`Tipo_Estado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ClassControl`.`Tipo_Estado` (
+  `id_tipo_estado` INT NOT NULL,
+  `descripcion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_tipo_estado`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `ClassControl`.`Estado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ClassControl`.`Estado` (
   `id_estado` INT NOT NULL AUTO_INCREMENT,
   `descripcion_Estado` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_estado`));
+  `Tipo_Estado_id_tipo_estado` INT NOT NULL,
+  PRIMARY KEY (`id_estado`),
+  INDEX `fk_Estado_Tipo_Estado1_idx` (`Tipo_Estado_id_tipo_estado` ) ,
+  CONSTRAINT `fk_Estado_Tipo_Estado1`
+    FOREIGN KEY (`Tipo_Estado_id_tipo_estado`)
+    REFERENCES `ClassControl`.`Tipo_Estado` (`id_tipo_estado`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -365,8 +387,8 @@ CREATE TABLE IF NOT EXISTS `ClassControl`.`VinculacionLaboral` (
   `idvinculacionLaboral` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(45) NOT NULL,
   `numeroContrato` VARCHAR(45) NOT NULL,
-  `fechaInIcio` DATE NOT NULL,
-  `fechafin` DATE NOT NULL,
+  `fechaInicio` DATE NOT NULL,
+  `fechaFin` DATE NOT NULL,
   `Usuarios_id_usuarios` INT NOT NULL,
   PRIMARY KEY (`idvinculacionLaboral`),
   UNIQUE INDEX `numeroContrato_UNIQUE` (`numeroContrato` ) ,

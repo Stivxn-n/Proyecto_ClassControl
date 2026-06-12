@@ -1,0 +1,66 @@
+/* ============================================
+   login.css — ClassControl
+   ============================================ */
+
+/* ---- Fuente base ---- */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---- Material Icons ---- */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ---- Campo de input base ---- */
+.input-field {
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input-field.is-invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+/* ---- Animación de shake en error ---- */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.35s ease;
+}
+
+/* ---- Fade-in suave de la tarjeta ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bg-white.shadow-xl {
+  animation: fadeUp 0.35s ease;
+}
+
+/* ---- Spinner de carga ---- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 0.7s linear infinite;
+}
+
+/* ---- Botón deshabilitado durante carga ---- */
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---- Checkbox color primario ---- */
+input[type="checkbox"].accent-primary {
+  accent-color: #39A900;
+}

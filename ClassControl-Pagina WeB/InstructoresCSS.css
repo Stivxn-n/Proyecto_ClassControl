@@ -1,0 +1,187 @@
+/* ============================================
+   instructores.css — ClassControl
+   Mismo sistema de diseño que actividades.css
+   ============================================ */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ---- Campos de formulario ---- */
+.input-field {
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  font-size: 0.875rem;
+  color: #1e293b;
+}
+
+.input-field:focus {
+  border-color: #38a800;
+  box-shadow: 0 0 0 3px rgba(56, 168, 0, 0.15);
+}
+
+.input-field.is-invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 0.25rem;
+}
+
+/* ---- Modales ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.15s ease;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-container {
+  animation: slideUp 0.2s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Toast ---- */
+.toast-anim {
+  animation: toastIn 0.25s ease;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Fila vacía ---- */
+.empty-row td {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* ---- Acciones hover ---- */
+.action-btns {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+tr:hover .action-btns {
+  opacity: 1;
+}
+
+/* ---- Paginación activa ---- */
+.page-btn-active {
+  background-color: #38a800 !important;
+  color: #fff !important;
+  border-color: #38a800 !important;
+}
+
+/* ---- Avatar inicial ---- */
+.avatar-iniciales {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* ---- Badges de rol ---- */
+.badge-instructor    { background: rgba(30, 64, 175, 0.1);  color: #1e40af; border: 1px solid rgba(30,64,175,0.2); }
+.badge-administrador { background: rgba(56, 168, 0, 0.12);  color: #2d8600; border: 1px solid rgba(56,168,0,0.2); }
+.badge-coordinador   { background: rgba(124, 58, 237, 0.1); color: #7c3aed; border: 1px solid rgba(124,58,237,0.2); }
+
+/* ---- Badges de área ---- */
+.badge-area {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* ---- Métricas ---- */
+.metrica-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.07);
+  border-left: 4px solid transparent;
+}
+
+/* ---- Detalle row ---- */
+.detalle-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.detalle-row .detalle-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+}
+.detalle-row .detalle-valor {
+  font-size: 0.875rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* ---- Avatar grande en detalle ---- */
+.avatar-lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+/* ---- Scroll fino ---- */
+.modal-container::-webkit-scrollbar { width: 4px; }
+.modal-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
